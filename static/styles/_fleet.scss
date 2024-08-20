@@ -1,0 +1,245 @@
+#fleet-upper {
+  position: relative;
+  img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    filter: brightness(50%);
+  }
+  .content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    color: white;
+    transform: translate(-50%, -50%);
+  }
+  .links {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: 50px;
+    transform: translate(-50%, -50%);
+    color: white;
+    h6 {
+      margin: 10px 0px;
+    }
+    i {
+      font-size: 15px;
+      margin: 4px 5px 0px 5px;
+    }
+  }
+}
+
+#cars {
+  padding: 50px 0px;
+  .custom-container {
+    width: 90%;
+    margin: auto;
+    .categories {
+      background-color: #1a2b48;
+      color: white;
+      border-radius: 10px;
+      padding: 20px;
+      form {
+        .banner-type {
+          padding: 20px 0px;
+        }
+        button {
+          margin-top: 20px;
+          background-color: rgb(179, 4, 4);
+          border: 1px solid rgb(179, 4, 4);
+          outline: none;
+          padding: 10px;
+          color: white;
+          border-radius: 10px;
+          transition: 0.2s ease-in-out;
+          &:hover {
+            background-color: green;
+            border: 1px solid green;
+          }
+        }
+      }
+    }
+    .car-box {
+      img {
+        height: 150px;
+        width: 100%;
+        object-fit: cover;
+        @media (max-width: 768px){
+          height: 80px;
+        }
+      }
+      .price {
+        background-color: rgb(179, 4, 4);
+        padding: 10px;
+        color: white;
+        margin: 5px 0px;
+        font-size: 13px;
+        text-align: center;
+        @media (max-width: 991px){
+          font-size: 10px;
+
+        }
+      }
+      .car-name {
+        font-weight: bold;
+        margin-top: 5px;
+      }
+      .personbagcount{
+        font-weight: bold;
+        i{
+          margin-top: 2px;
+          margin-right: 2px;
+        }
+        .bag{
+          margin: 0px 8px;
+        }
+      }
+    }
+  }
+}
+#include-fleet-form {
+  background-color: #f5f6f9;
+  padding-bottom: 50px;
+  .custom-container {
+    width: 90%;
+    margin: auto;
+    @media (min-width: 991px) {
+      width: 70%;
+      margin: auto;
+    }
+    h2 {
+      padding: 30px 0px;
+    }
+    .categories {
+      @media (max-width: 991px) {
+        justify-content: center;
+      }
+      .category {
+        cursor: pointer;
+        color: white;
+        border-radius: 2px;
+        background-color: #1a2b48;
+        padding: 10px;
+        font-size: 15px;
+        margin-left: 10px;
+        text-align: center;
+        @media (max-width: 991px) {
+          padding: 10px 5px;
+        }
+      }
+      .active-category {
+        background-color: #5191fa;
+        color: #fff;
+      }
+    }
+    form {
+      background-color: #ffffff;
+      padding: 15px 40px;
+      border-radius: 10px;
+
+      @media (min-width: 1600px) {
+        padding: 15px 90px;
+      }
+
+      .form-group {
+        margin-top: 20px;
+
+        label {
+          display: block;
+          font-weight: bold;
+          margin-bottom: 5px;
+          color: #1a2b48;
+        }
+
+        i {
+          margin-left: 8px;
+          margin-top: 3px;
+        }
+
+        input,
+        textarea {
+          width: 100%;
+          padding: 10px;
+          border: 1px solid #ccc;
+          border-radius: 5px;
+
+          @media (min-width: 1600px) {
+            padding: 10px 20px;
+          }
+        }
+
+        .custom-select {
+          position: relative;
+          width: 100%;
+          cursor: pointer;
+
+          .selected-option {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+
+            img {
+              margin-left: 5px;
+              width: 15%;
+              object-fit: cover;
+            }
+          }
+
+          .options {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            z-index: 10;
+
+            li {
+              padding: 10px;
+              display: flex;
+              align-items: center;
+              cursor: pointer;
+
+              img {
+                margin-left: 5px;
+                width: 15%;
+                object-fit: cover;
+              }
+
+              &:hover {
+                background-color: #f0f0f0;
+              }
+              &:first-child{
+                display: none;
+              }
+            }
+          }
+
+          &.open .options {
+            display: block;
+          }
+        }
+      }
+
+      .dateandtime,
+      .custom-group {
+        display: flex;
+
+        .custom-gap {
+          margin-left: 20px;
+        }
+      }
+
+      .btn {
+        margin-top: 20px;
+        padding: 10px 20px;
+        border-radius: 5px;
+      }
+    }
+  }
+}

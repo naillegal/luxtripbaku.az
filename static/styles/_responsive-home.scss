@@ -1,0 +1,114 @@
+@media (max-width: 991px) {
+  #startline {
+    display: none;
+  }
+  header {
+    padding: 0px;
+    .container {
+      .logo {
+        a {
+          img {
+            padding: 12px 0px;
+            width: 70%;
+          }
+        }
+      }
+      .navbar {
+        display: none;
+      }
+      .responsive-navbar {
+        display: block;
+      }
+    }
+  }
+  #main-forms {
+    .custom-container {
+      display: none;
+    }
+    .responsive-custom-container {
+      display: block;
+      .leftside {
+        p {
+          line-height: 35px;
+        }
+      }
+      .rightside {
+        form {
+          .dateandtime,
+          .custom-group {
+            display: block;
+          }
+        }
+      }
+    }
+  }
+  #slider-advantages {
+    .advantages-first-content {
+      margin: 20px 20px 60px 20px;
+    }
+    .custom-container {
+      .box {
+        height: 120px;
+      }
+      h6 {
+        font-size: 14px;
+      }
+    }
+  }
+  #who-we-are {
+    .who-we-are-first-content {
+      margin: 20px 20px 40px 20px;
+    }
+  }
+  // contact.html
+  #contact-form {
+    .gray {
+      margin: auto;
+      
+    }
+  }
+  // tours.html
+  #tours-info {
+    .info-upper {
+      flex-wrap: wrap;
+    }
+  }
+  // blog-detail.html
+  #blog-detail {
+    .container {
+      img {
+        height: 300px;
+      }
+      .content {
+        .custom-flex {
+          display: block;
+          .social {
+            margin-top: 20px;
+          }
+        }
+      }
+    }
+  }
+  // fleet.html 
+  #cars{
+    .custom-container{
+      .row{
+        .car-box{
+          img{
+            height: 100px;
+          }
+          .car-name{
+            font-size: 12px;
+          }
+        .price{
+          width: 100%;
+          font-size: 10px;
+        }
+        .car-banner,.car-lux{
+          font-size: 13px;
+        }
+        }
+      }
+    }
+  }
+}

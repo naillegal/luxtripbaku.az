@@ -1,0 +1,91 @@
+{% extends "layout.html" %}
+{% load static %}
+{% load i18n %}
+{% block title %}
+  <title>{{ blog.get_seo_title }}</title>
+{% endblock title %}
+{% block meta_tags %}
+<meta name="description" content="LUX TRIP BAKU offers reliable, professional drivers with prices 30% lower than market rates. Choose from our fleet, enjoy on-time service, and book unforgettable tours.">
+<meta property="og:title" content="Blog Page - Luxtripbaku a company experienced in organizing transfers and tours" />
+<meta property="og:description" content="LUX TRIP BAKU offers reliable, professional drivers with prices 30% lower than market rates. Choose from our fleet, enjoy on-time service, and book unforgettable tours." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="{{request.build_absolute_uri}}" />
+<meta property="og:image" content="{% static "assets/logo.webp" %}" />
+{% endblock meta_tags %} 
+{% block main %}
+<main>
+  <section id="blog-detail-upper">
+    <img src="{% static "assets/blog-detail-bg.jpg" %}" alt="" />
+    <div class="content">
+      <h1>Blog Detail</h1>
+    </div>
+    <div class="links">
+      <a href="{% url 'promotion:home' %}">{% trans "Home" %}</a>
+      <a href="{% url 'blog:blog' %}">- {% trans "Blog" %}</a>
+    </div>
+  </section>
+  <section id="blog-detail">
+    <div class="container">
+        <img src="{{ blog.image.url }}" alt="{{ blog.title }}" />
+
+        <div class="content">
+            <div class="d-flex content-upside">
+                <div><i class="fa-regular fa-calendar"></i>{{ blog.created|date:"M d, Y" }}</div>
+                <div style="padding: 0px 15px">||</div>
+                <div><i class="fa-solid fa-user-large"></i>{{ blog.category.title }}</div>
+            </div>
+
+            <h2>{{ blog.title }}</h2>
+
+            <p>
+                {{ blog.content|safe }}
+            </p>
+
+            <hr />
+
+            <div class="custom-flex">
+                <div class="d-flex">
+                    <div>
+                        <h4>{% trans "Tags" %}:</h4>
+                    </div>
+                    <div class="tags d-flex">
+                        {% for tag in blog.tags.all %}
+                        <div class="tag-box">{{ tag.title }}</div>
+                        {% empty %}
+                        <div class="tag-box">{% trans "No tags" %}</div>
+                        {% endfor %}
+                    </div>
+                </div>
+
+                <div class="social">
+                  {% for social in socials %}
+                  {% if social.platform == 'facebook' %}
+                      <a href="{{ social.link }}">
+                          <i class="fa-brands fa-facebook-f"></i>
+                      </a>
+                  {% elif social.platform == 'instagram' %}
+                      <a href="{{ social.link }}">
+                          <i class="fa-brands fa-instagram"></i>
+                      </a>
+                  {% elif social.platform == 'tiktok' %}
+                      <a href="{{ social.link }}">
+                          <i class="fa-brands fa-tiktok"></i>
+                      </a>
+                  {% endif %}
+              {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+</main>
+{% endblock main %}
+
+
+
+
+
+
+
+

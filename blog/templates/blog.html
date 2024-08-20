@@ -1,0 +1,129 @@
+{% extends "layout.html" %}
+{% load static %}
+{% load i18n %}
+{% block title %}
+  <title>{% trans "Blog - Luxtripbaku a company experienced in organizing transfers and tours" %}</title>
+{% endblock title %}
+{% block meta_tags %}
+<meta name="description" content="LUX TRIP BAKU offers reliable, professional drivers with prices 30% lower than market rates. Choose from our fleet, enjoy on-time service, and book unforgettable tours.">
+<meta property="og:title" content="Blog Page - Luxtripbaku a company experienced in organizing transfers and tours" />
+<meta property="og:description" content="LUX TRIP BAKU offers reliable, professional drivers with prices 30% lower than market rates. Choose from our fleet, enjoy on-time service, and book unforgettable tours." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="{{request.build_absolute_uri}}" />
+<meta property="og:image" content="{% static "assets/logo.webp" %}" />
+{% endblock meta_tags %} 
+{% block main %}
+<main>
+  <section id="blog-upper">
+    <img src="{% static "assets/blog-upper.jpg" %}" alt="" />
+    <div class="content">
+      <h1>{% trans "Blog" %}</h1>
+    </div>
+    <div class="links">
+      <a href="{% url 'promotion:home' %}">{% trans "Home" %}</a>
+      <a href="{% url 'blog:blog' %}">- {% trans "Blog" %}</a>
+    </div>
+  </section>
+  <section id="blogs">
+    <div class="custom-container">
+      <div class="row">
+        {% for blog in page_obj %}
+        <div class="col-12 col-md-6 col-lg-4">
+            <div class="main-box">
+                <a href="{% url 'blog:blog-detail' blog.slug blog.pk %}">
+                    <img class="blog-img" src="{{ blog.image.url }}" alt="{{ blog.title }}" />
+                </a>
+                <div class="content">
+                    <div style="padding-bottom: 5px" class="d-flex">
+                        <img class="logo" src="{% static 'assets/logo.webp' %}" alt="Logo" />
+                        <div style="padding: 0px 20px; margin-top: 10px">
+                            <span>{{ blog.category.title }}</span>
+                            <p class="time">{{ blog.created|date:"M d, Y" }}</p>
+                        </div>
+                    </div>
+
+                    <a href="{% url 'blog:blog-detail' blog.slug blog.pk %}">
+                        <h6>{{ blog.title }}</h6>
+                    </a>
+                    <p class="box-content">
+                        {{ blog.content|slice:":100" }}...
+                    </p>
+                    <hr />
+                    <a href="{% url 'blog:blog-detail' blog.slug blog.pk %}">
+                        <div class="d-flex">
+                            {% trans "Read More" %}
+                            <i class="fa-solid fa-circle-right"></i>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+        {% empty %}
+        <p>{% trans "No blog posts available." %}</p>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+  <section id="pagination">
+    <nav aria-label="Page navigation">
+        <ul class="pagination">
+            {% if page_obj.has_previous %}
+            <li class="page-item">
+                <a class="page-link" href="?page=1" aria-label="First">
+                    <span aria-hidden="true">&laquo;&laquo;</span>
+                </a>
+            </li>
+            <li class="page-item">
+                <a class="page-link" href="?page={{ page_obj.previous_page_number }}" aria-label="Previous">
+                    <span aria-hidden="true">&laquo;</span>
+                </a>
+            </li>
+            {% else %}
+            <li class="page-item disabled">
+                <a class="page-link" href="#" tabindex="-1" aria-disabled="true">&laquo;&laquo;</a>
+            </li>
+            <li class="page-item disabled">
+                <a class="page-link" href="#" tabindex="-1" aria-disabled="true">&laquo;</a>
+            </li>
+            {% endif %}
+            
+            {% for num in page_obj.paginator.page_range %}
+            {% if page_obj.number == num %}
+            <li class="page-item active">
+                <a class="page-link" href="#">{{ num }} <span class="sr-only">(current)</span></a>
+            </li>
+            {% else %}
+            <li class="page-item">
+                <a class="page-link" href="?page={{ num }}">{{ num }}</a>
+            </li>
+            {% endif %}
+            {% endfor %}
+            
+            {% if page_obj.has_next %}
+            <li class="page-item">
+                <a class="page-link" href="?page={{ page_obj.next_page_number }}" aria-label="Next">
+                    <span aria-hidden="true">&raquo;</span>
+                </a>
+            </li>
+            <li class="page-item">
+                <a class="page-link" href="?page={{ page_obj.paginator.num_pages }}" aria-label="Last">
+                    <span aria-hidden="true">&raquo;&raquo;</span>
+                </a>
+            </li>
+            {% else %}
+            <li class="page-item disabled">
+                <a class="page-link" href="#" tabindex="-1" aria-disabled="true">&raquo;</a>
+            </li>
+            <li class="page-item disabled">
+                <a class="page-link" href="#" tabindex="-1" aria-disabled="true">&raquo;&raquo;</a>
+            </li>
+            {% endif %}
+        </ul>
+    </nav>
+</section>
+</main>
+{% endblock main %}
+
+
+
+

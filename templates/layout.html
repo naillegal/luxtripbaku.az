@@ -1,0 +1,288 @@
+{% load static %}
+{% load i18n %}
+{% load social_tags %} {% get_social as socials %}
+{% load ourinfo_tags %} {% get_ourinfo as infos %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/css/flag-icon.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+      integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="{% static "vendors/bootstrap.min.css" %}" />
+    <link rel="stylesheet" href="{% static "styles/style.css" %}" />
+    {% block title %}{% endblock title %}
+  </head>
+  <body>
+    <section id="fixed-buttons">
+      {% for social in socials %}
+          {% if social.platform == 'whatsapp' %}
+              <div class="button">
+                  <a href="{{ social.link }}" target="_blank">
+                      <i class="fa-brands fa-whatsapp"></i>
+                  </a>
+              </div>
+          {% elif social.platform == 'wechat' %}
+              <div class="button">
+                  <a href="{{ social.link }}" target="_blank">
+                      <i class="fa-brands fa-weixin"></i>
+                  </a>
+              </div>
+          {% endif %}
+      {% endfor %}
+  </section>
+    <section id="startline">
+      <div class="container">
+        <div class="d-flex justify-content-between">
+          <div class="leftside">
+            <div class="d-flex">
+              <div class="icons">
+                {% for social in socials %}
+                {% if social.platform == 'facebook' %}
+            <a href="{{ social.link }}">
+                <i class="fa-brands fa-facebook-f"></i>
+            </a>
+                {% elif social.platform == 'instagram' %}
+            <a href="{{ social.link }}">
+                <i class="fa-brands fa-instagram"></i>
+            </a>
+                {% elif social.platform == 'tiktok' %}
+            <a href="{{ social.link }}">
+                <i class="fa-brands fa-tiktok"></i>
+            </a>
+            {% endif %}
+            {% endfor %}
+              </div>
+              <div class="startline">
+                <span>|</span>
+              </div>
+              <div class="startcontact">
+                {% for info in infos %}
+                {% if info.type == 'email' %}
+                <a href="mailto:{{ info.content }}">
+                {{ info.content }}
+                </a>
+                {% endif %}
+                {% endfor %}
+              </div>
+            </div>
+          </div>
+          
+
+          <div class="rightside">
+            {% get_current_language as LANGUAGE_CODE %}
+            {% if LANGUAGE_CODE == "ru" %}
+                <i class="flag-icon flag-icon-ru"></i>
+                <a id="select-current">Russian</a>
+            {% else %}
+                <i class="flag-icon flag-icon-gb"></i>
+                <a id="select-current">English</a>
+            {% endif %}
+            <i class="fa-solid fa-chevron-down"></i>
+            <div class="language-open-menu">
+                {% if LANGUAGE_CODE == "ru" %}
+                    <i class="flag-icon flag-icon-gb"></i>
+                    <a id="select-english">English</a>
+                {% else %}
+                    <i class="flag-icon flag-icon-ru"></i>
+                    <a id="select-russian">Russian</a>
+                {% endif %}
+            </div>
+        </div>
+        
+        <form id="lang-form" action="{% url 'set_language' %}" method="post" style="display: none;">
+            {% csrf_token %}
+            <input name="next" type="hidden" value="{{ redirect_to }}">
+            <select id="lang-select" name="language">
+                {% get_current_language as LANGUAGE_CODE %}
+                {% get_available_languages as LANGUAGES %}
+                {% get_language_info_list for LANGUAGES as languages %}
+                {% for language in languages %}
+                    <option value="{{ language.code }}"{% if language.code == LANGUAGE_CODE %} selected{% endif %}>
+                        {{ language.name_local }} ({{ language.code }})
+                    </option>
+                {% endfor %}
+            </select>
+        </form>
+        
+
+
+        </div>
+      </div>
+    </section>
+    <header>
+      <div class="container">
+        <div class="d-flex">
+          <div class="logo">
+            <a href="{% url 'promotion:home' %}">
+              <img src="{% static "assets/logo.webp" %}" alt="" />
+            </a>
+          </div>
+          <div class="navbar">
+            <ul class="list-unstyled d-flex">
+              <li><a href="{% url 'promotion:home' %}">{% trans "Home" %}</a></li>
+              <li><a href="{% url 'promotion:tours' %}">{% trans "Transfers&Tours" %}</a></li>
+              <li><a href="{% url 'promotion:fleet' %}">{% trans "Fleet&Rate" %}</a></li>
+              <li><a href="{% url 'blog:blog' %}">{% trans "Blog" %}</a></li>
+              <li><a href="{% url 'promotion:faq' %}">{% trans "FAQ" %}</a></li>
+              <li><a href="{% url 'promotion:contact' %}">{% trans "Contact Us" %}</a></li>
+            </ul>
+          </div>
+          <div class="responsive-navbar">
+            <i class="fa-solid fa-bars"></i>
+          </div>
+          <div class="responsive-openmenu">
+            <ul class="list-unstyled outside-ul">
+              <li>
+                <div class="isopenmenu">
+                  <a href="{% url 'promotion:home' %}">{% trans "Home" %}</a>
+                </div>
+                <div class="openmenu-divider-outside"></div>
+              </li>
+              <li>
+                <div class="isopenmenu">
+                  <a href="{% url 'promotion:tours' %}">{% trans "Transfers&Tours" %}</a>
+                </div>
+                <div class="openmenu-divider-outside"></div>
+              </li>
+              <li>
+                <div class="isopenmenu">
+                  <a href="{% url 'promotion:fleet' %}">{% trans "Fleet&Rate" %}</a>
+                </div>
+                <div class="openmenu-divider-outside"></div>
+              </li>
+              <li><a href="{% url 'blog:blog' %}">{% trans "Blog" %}</a></li>
+              <div class="openmenu-divider-outside"></div>
+              <li><a href="{% url 'promotion:faq' %}">{% trans "FAQ" %}</a></li>
+              <div class="openmenu-divider-outside"></div>
+              <li>
+                <div class="isopenmenu">
+                  <a href="{% url 'promotion:contact' %}">{% trans "Contact Us" %}</a>
+                </div>
+                <div class="openmenu-divider-outside"></div>
+              </li>
+            </ul>
+            <div class="responsive-multilanguage">
+              <div class="d-flex justify-content-around">
+                <div>
+                  <i class="flag-icon flag-icon-gb"></i>
+                  English
+                </div>
+                <div>
+                  <i class="flag-icon flag-icon-ru"></i>
+                  Russian
+                </div>
+              </div>
+            </div>
+            <div class="responsive-openmenu-icons">
+              <a href="#">
+                <i class="fa-brands fa-facebook-f"></i>
+              </a>
+              <a href="#">
+                <i class="fa-brands fa-instagram"></i>
+              </a>
+              <a href="#">
+                <i class="fa-brands fa-tiktok"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+    {% block main %}{% endblock main %}
+
+    <footer>
+        <div class="container">
+          <div class="row row-gap-5">
+            <div class="col-lg-6 col-sm-12">
+              <h6>Need help?</h6>
+              <div class="call">
+                {% for info in infos %}
+                {% if info.type == 'number' %}
+                <span>{% trans "Call us" %}</span>
+                <a href="tel:{{ info.content }}">
+                <h5>{{ info.content }}</h5>
+                </a>
+                {% endif %}
+                {% endfor %}
+            </div>
+            
+            <div class="email">
+              {% for info in infos %}
+              {% if info.type == 'email' %}
+                  <span>{% trans "Email to us" %}</span>
+                  <a href="mailto:{{ info.content }}">
+                      <h5>{{ info.content }}</h5>
+                  </a>
+              {% endif %}
+              {% endfor %}
+            </div>
+              <div class="social">
+                <span>{% trans "Follow us" %}</span><br />
+                {% for social in socials %}
+                    {% if social.platform == 'facebook' %}
+                        <a href="{{ social.link }}">
+                            <i class="fa-brands fa-facebook-f"></i>
+                        </a>
+                    {% elif social.platform == 'instagram' %}
+                        <a href="{{ social.link }}" style="padding: 0px 15px">
+                            <i class="fa-brands fa-instagram"></i>
+                        </a>
+                    {% elif social.platform == 'tiktok' %}
+                        <a href="{{ social.link }}">
+                            <i class="fa-brands fa-tiktok"></i>
+                        </a>
+                    {% endif %}
+                {% endfor %}
+            </div>
+            </div>
+            <div class="col-lg-6 col-sm-12">
+              <h6>{% trans "Menu" %}</h6>
+              <div class="d-flex">
+                <ul class="list-unstyled">
+                  <li><a href="{% url 'promotion:home' %}">{% trans "Home" %}</a></li>
+                  <li><a href="{% url 'promotion:tours' %}">{% trans "Transfers&Tours" %}</a></li>
+                  <li><a href="{% url 'promotion:fleet' %}">{% trans "Fleet&Rate" %}</a></li>
+                </ul>
+                <ul class="list-unstyled" style="margin-left: 150px">
+                  <li><a href="{% url 'blog:blog' %}">{% trans "Blog" %}</a></li>
+                  <li><a href="{% url 'promotion:faq' %}">{% trans "FAQ" %}</a></li>
+                  <li><a href="{% url 'promotion:contact' %}">{% trans "Contact Us" %}</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
+      {% block scripts %}{% endblock scripts %}
+      <section id="copyright">
+        <div class="container">
+          <div class="d-flex justify-content-between">
+            <div>Copyright © <span id="year"></span> by Lux Trip Baku</div>
+            <div>Lux Trip Baku</div>
+          </div>
+        </div>
+      </section>
+      <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+      <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+      <script src="{% static "scripts/main.js" %}"></script>
+    </body>
+  </html>

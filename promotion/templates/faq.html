@@ -1,0 +1,55 @@
+{% extends "layout.html" %}
+{% load static %}
+{% load i18n %}
+{% block title %}
+  <title>{% trans "FAQ - Luxtripbaku a company experienced in organizing transfers and tours" %}</title>
+{% endblock title %}
+{% block meta_tags %}
+<meta name="description" content="LUX TRIP BAKU offers reliable, professional drivers with prices 30% lower than market rates. Choose from our fleet, enjoy on-time service, and book unforgettable tours.">
+<meta property="og:title" content="Contact Page - Luxtripbaku a company experienced in organizing transfers and tours" />
+<meta property="og:description" content="LUX TRIP BAKU offers reliable, professional drivers with prices 30% lower than market rates. Choose from our fleet, enjoy on-time service, and book unforgettable tours." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="{{request.build_absolute_uri}}" />
+<meta property="og:image" content="{% static "assets/logo.webp" %}" />
+{% endblock meta_tags %} 
+{% block main %}
+
+<main>
+  <section id="faq-upper">
+    <img src="{% static "assets/faq-upper-bg.jpg" %}" alt="" />
+    <div class="content">
+      <h1>FAQ</h1>
+    </div>
+    <div class="links">
+      <a href="{% url 'promotion:faq' %}">{% trans "Frequently Asked Questions" %}</a>
+    </div>
+  </section>
+  <section id="faq-under">
+    <div class="faq-first-content">
+      <h4 class="text-center">{% trans "If you have any additional questions besides the ones below, don't hesitate to ask us!" %}</h4>
+    </div>
+    <div class="faqs">
+      <div class="container-fluid">
+        <div class="row row-gap-4">
+          {% for faq in faqs %}
+          <div class="faq col-lg-12">
+            <div class="d-flex click">
+                <h6>
+                    {{ forloop.counter }}. {{ faq.question }}
+                </h6>
+                <i style="margin-left: auto" class="fa-solid fa-plus"></i>
+                <i style="margin-left: auto" class="fa-solid fa-minus"></i>
+            </div>
+            <p>
+                {{ faq.answer }}
+            </p>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+{% endblock main %}
+
+
