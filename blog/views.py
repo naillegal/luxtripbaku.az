@@ -11,4 +11,6 @@ def blog(request):
 
 def blog_detail(request, pk, slug):
     blog = get_object_or_404(Blog, pk=pk, slug=slug)
+    blog.viewed += 1
+    blog.save()
     return render(request, 'blog-detail.html', {'blog': blog})
