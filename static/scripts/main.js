@@ -1,10 +1,11 @@
 // languange-menu
-document.querySelector(".rightside").addEventListener("click", function () {
+document.querySelector(".rightside").addEventListener("click", function(e) {
   const languageMenu = document.querySelector(".language-open-menu");
-
-  $(languageMenu).slideToggle(300);
+  
+  if (e.target.classList.contains('fa-chevron-down') || e.target.id === 'select-current') {
+      $(languageMenu).slideToggle(300);
+  }
 });
-
 
 document.getElementById('select-english')?.addEventListener('click', function(e) {
   e.preventDefault();
@@ -14,6 +15,16 @@ document.getElementById('select-english')?.addEventListener('click', function(e)
 
 document.getElementById('select-russian')?.addEventListener('click', function(e) {
   e.preventDefault();
+  document.getElementById('lang-select').value = 'ru';
+  document.getElementById('lang-form').submit();
+});
+
+document.getElementById('responsive-english')?.addEventListener('click', function() {
+  document.getElementById('lang-select').value = 'en';
+  document.getElementById('lang-form').submit();
+});
+
+document.getElementById('responsive-russian')?.addEventListener('click', function() {
   document.getElementById('lang-select').value = 'ru';
   document.getElementById('lang-form').submit();
 });
