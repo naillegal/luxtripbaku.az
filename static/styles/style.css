@@ -794,6 +794,8 @@ footer ul li a {
 #faq-upper .links a {
   text-decoration: none;
   color: white;
+  text-align: center;
+  display: inline-block;
 }
 
 #faq-under {
@@ -1402,6 +1404,7 @@ footer ul li a {
   left: 50%;
   color: white;
   transform: translate(-50%, -50%);
+  text-align: center;
 }
 
 #tours-info {
