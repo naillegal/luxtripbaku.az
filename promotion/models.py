@@ -253,3 +253,16 @@ class TourForm(models.Model):
     def __str__(self):
         return self.full_name
     
+
+# Home section Who we are? model 
+class Whoweare(models.Model):
+    image = models.ImageField(upload_to='whoweare/',null=False, blank=False, verbose_name='Who we are image')
+    head_title = models.TextField(null=False,blank=False)
+    content = models.TextField(null=False,blank=False)
+
+    class Meta:
+        verbose_name = 'Who we are'
+        verbose_name_plural = 'Who we are'
+
+    def __str__(self):
+        return self.head_title

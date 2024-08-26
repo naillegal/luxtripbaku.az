@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .models import Tour, Car, Faq, HomeFirstContent
+from .models import Tour, Car, Faq, HomeFirstContent, Whoweare
 from .forms import CityFilterForm, ContactRequestForm, UpdatesRequestForm, FleetFormModelForm, TourFormModelForm
 from django.contrib import messages
 # Create your views here.
@@ -7,6 +7,7 @@ from django.contrib import messages
 
 def home(request):
     first_content = HomeFirstContent.objects.all()
+    whoweare_content = Whoweare.objects.first()
 
     fleetform = FleetFormModelForm(prefix='fleet_')
     tourform = TourFormModelForm(prefix='tour_')
@@ -33,8 +34,9 @@ def home(request):
 
     return render(request, 'index.html', {
         'first_content': first_content,
+        'whoweare': whoweare_content,
         'fleetform': fleetform,
-        'tourform': tourform
+        'tourform': tourform,
     })
 
 

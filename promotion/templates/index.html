@@ -634,56 +634,34 @@
       </p>
     </div>
     <div class="custom-container">
-      <div class="row row-gap-4">
+      <div class="row">
         <div class="col-lg-6 col-md-12">
-          <img src="{% static "assets/whoweare.jpg" %}" alt="" />
-        </div>
-        <div class="col-lg-6 col-md-12">
+          {% if whoweare and whoweare.image %}
+              <img src="{{ whoweare.image.url }}" alt="" />
+          {% else %}
+              <img src="{% static 'path/to/placeholder/image.jpg' %}" alt="Default image" />
+          {% endif %}
+      </div>
+      <div class="col-lg-6 col-md-12">
           <div class="rightbox">
-            <h4>
-              {% trans "We will save you from constantly worrying about finding local" %}
-              {% trans "drivers on your own, their reliability, and being overcharged." %}
-            </h4>
-            <p>
-              {% trans "We only work with reliable, professional, and courteous drivers." %}
-              {% trans "When you choose us, the cost of your trips will be at least 30%" %}
-              {% trans "lower than the market average for the quality you receive. You can" %}
-              {% trans "verify this by simply comparing our offer with those of our" %}
-              {% trans "competitors. Our prices are standard and precise for everyone. No" %}
-              {% trans " additional payment can be required upon arrival." %}
-            </p>
-            <p>
-              {% trans "LUX TRIP BAKU chauffeurs will pick you up, along with your" %}
-              {% trans "luggage, from any location and will comfortably transfer to your" %}
-              {% trans "desired destination with our vehicles. You can choose the vehicle you want in the" %} <a href="fleet.html">{% trans "Fleet&Rate" %}</a> 
-              {% trans "section of our website. If you have a specific vehicle in mind, please let us" %}
-              {% trans " know, and we will send you pictures of the vehicles for your" %}
-              {% trans "selection. On our website, you can explore sights and attractions in the" %} <a href="tours.html">
-              {% trans "Transfers&Tours" %}</a> {% trans "section. Make online booking and simply let us know the name of the cities or" %}
-              {% trans "districts you wish to visit, then we will offer you unforgettable" %}
-              {% trans "tours according to your wishes. We will get back to you with the" %}
-              {% trans "most suitable price offer tailored to your needs by our system." %}
-              {% trans "You can pay for the service in advance by credit card or in cash" %}
-              {% trans "upon arrival, whichever is more convenient for you." %}
-            </p>
-            <p>
-              {% trans "Our drivers are always on time. We value our reputation and" %}
-              {% trans "prioritize the comfort of our customers. To ensure the high level" %}
-              {% trans "of our service, we regularly organize training seminars for our" %}
-              {% trans "drivers. If a driver violates service rules even once, they are" %}
-              {% trans "removed from our database and permanently lose the opportunity to work with us." %}
-            </p>
-            <div class="button">
-              {% for social in socials %}
-                  {% if social.platform == 'whatsapp' %}
-                      <a href="{{ social.link }}" target="_blank">
-                          <i class="fa-brands fa-whatsapp"></i> Whatsapp
-                      </a>
-                  {% endif %}
-              {% endfor %}
+              {% if whoweare %}
+                  <h4>{{ whoweare.head_title }}</h4>
+                  <p>{{ whoweare.content|linebreaks }}</p>
+              {% else %}
+                  <h4>Default Title</h4>
+                  <p>Default content goes here.</p>
+              {% endif %}
+              <div class="button">
+                  {% for social in socials %}
+                      {% if social.platform == 'whatsapp' %}
+                          <a href="{{ social.link }}" target="_blank">
+                              <i class="fa-brands fa-whatsapp"></i> Whatsapp
+                          </a>
+                      {% endif %}
+                  {% endfor %}
+              </div>
           </div>
-          </div>
-        </div>
+      </div>
       </div>
     </div>
   </section>

@@ -6,7 +6,7 @@ from blog.models import Blog, Tag, Category
 
 class StaticViewSitemap(sitemaps.Sitemap):
     change_freqs = {
-        'promotion:home': 'yearly',
+        'promotion:home': 'monthly',
         'promotion:fleet': 'monthly',
         'promotion:faq': 'yearly',
         'promotion:tours': 'monthly',
@@ -19,7 +19,7 @@ class StaticViewSitemap(sitemaps.Sitemap):
         'promotion:faq': 0.6,
         'promotion:tours': 0.8,
         'promotion:contact': 0.7,
-        'blog:blog': 0.4
+        'blog:blog': 0.4,
     }
 
     def items(self):

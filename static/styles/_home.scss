@@ -594,14 +594,16 @@ header {
       }
     }
     .rightbox {
+      margin-top: 15px;
       p {
-        font-size: 13px;
+        font-size: 14px;
         @media (min-width: 1600px) {
           font-size: 16px;
         }
       }
       h6 {
         color: #1a2b48;
+        font-size: 14px;
       }
       .fa-circle-check {
         font-size: 20px;
@@ -610,6 +612,9 @@ header {
       h4 {
         color: #1a2b48;
         padding: 10px 0px;
+        @media (min-width: 1600px) {
+          font-size: 28px;
+        }
       }
       .button {
         cursor: pointer;

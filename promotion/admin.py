@@ -1,8 +1,23 @@
 from django.contrib import admin
 from django.utils.html import format_html
-from .models import City, Tour, TourImage, Car, ContactRequest, Social, OurInformation, Faq, UpdatesRequest, HomeFirstContent,FleetForm, TourForm,PriceByWayCount
+from .models import City, Tour, TourImage, Car, ContactRequest, Social, OurInformation, Faq, UpdatesRequest, HomeFirstContent,FleetForm, TourForm,PriceByWayCount,Whoweare
 from django.contrib.admin import DateFieldListFilter
+from modeltranslation.admin import TranslationAdmin
 
+
+# CustomTranslationAdmin 
+class CustomTranslationAdmin(TranslationAdmin):
+    group_fieldsets = True
+
+    class Media:
+        js = (
+            'http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js',
+            'http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.2/jquery-ui.min.js',
+            'modeltranslation/js/tabbed_translation_fields.js',
+        )
+        css = {
+            'screen': ('modeltranslation/css/tabbed_translation_fields.css',),
+        }
 
 # Tour Admin
 class TourImageInline(admin.TabularInline):
@@ -20,16 +35,15 @@ class TourImageInline(admin.TabularInline):
 
 
 @admin.register(City)
-class CityAdmin(admin.ModelAdmin):
+class CityAdmin(CustomTranslationAdmin):
     list_display = ('name', 'created', 'updated')
     list_filter = (
         ('created', DateFieldListFilter),
         ('updated', DateFieldListFilter),
     )
 
-
 @admin.register(Tour)
-class TourAdmin(admin.ModelAdmin):
+class TourAdmin(CustomTranslationAdmin):
     list_display = ('title', 'city', 'created', 'updated')
     list_filter = (
         'city',
@@ -40,7 +54,7 @@ class TourAdmin(admin.ModelAdmin):
 
 
 @admin.register(TourImage)
-class TourImageAdmin(admin.ModelAdmin):
+class TourImageAdmin(CustomTranslationAdmin):
     list_display = ('tour', 'caption', 'created', 'updated', 'image_thumbnail')
     list_filter = (
         'tour',
@@ -59,7 +73,7 @@ class TourImageAdmin(admin.ModelAdmin):
 
 # Fleet Admin
 @admin.register(Car)
-class CarAdmin(admin.ModelAdmin):
+class CarAdmin(CustomTranslationAdmin):
     list_display = ('thumbnail', 'name', 'ban_type', 'lux_type', 'person_count', 'luggage_count', 'created', 'updated')
     list_filter = ('ban_type', 'lux_type', 'created', 'updated')
     search_fields = ('name', 'ban_type', 'lux_type')
@@ -121,7 +135,7 @@ class OurInformationAdmin(admin.ModelAdmin):
 
 # FAQ Admin
 @admin.register(Faq)
-class FaqAdmin(admin.ModelAdmin):
+class FaqAdmin(CustomTranslationAdmin):
     list_display = ('question',)
     readonly_fields = ('created',)
     list_filter = (
@@ -140,7 +154,7 @@ class UpdatesRequest(admin.ModelAdmin):
 
 # HomeFirstContent Admin
 @admin.register(HomeFirstContent)
-class HomeFirstContent(admin.ModelAdmin):
+class HomeFirstContent(CustomTranslationAdmin):
     readonly_fields = ('created',)
     list_filter = (
         ('created', DateFieldListFilter),
@@ -172,3 +186,23 @@ class TourFormAdmin(admin.ModelAdmin):
     def mark_as_viewed(self, request, queryset):
         queryset.update(viewed=True)
     mark_as_viewed.short_description = "Mark selected tour forms as viewed"
+
+
+# Who we are admin
+@admin.register(Whoweare)
+class WhoweareAdmin(CustomTranslationAdmin):
+    list_display = ('head_title',)
+    
+    def thumbnail(self, obj):
+        if obj.image:
+            return format_html('<img src="{}" width="120;" height="80;" />', obj.image.url)
+        return ""
+    thumbnail.short_description = 'Current Image'
+
+    readonly_fields = ('thumbnail',)
+
+    fieldsets = (
+        (None, {
+            'fields': ('thumbnail', 'image', 'head_title', 'content',)
+        }),
+    )
