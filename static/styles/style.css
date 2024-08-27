@@ -555,22 +555,13 @@ header .responsive-openmenu .responsive-openmenu-icons a i {
   width: 100%;
   -o-object-fit: cover;
      object-fit: cover;
-  height: 500px;
+  height: 650px;
   margin-top: 20px;
 }
 @media (max-width: 991px) {
   #who-we-are .custom-container img {
     height: 300px;
   }
-}
-@media (min-width: 1600px) {
-  #who-we-are .custom-container img {
-    margin-top: 10px;
-    height: 600px;
-  }
-}
-#who-we-are .custom-container .rightbox {
-  margin-top: 15px;
 }
 #who-we-are .custom-container .rightbox p {
   font-size: 14px;
@@ -686,6 +677,7 @@ footer .email {
 footer .social a {
   text-decoration: none;
   color: black;
+  padding-right: 16px;
 }
 footer .social a i {
   margin-top: 10px;
@@ -1226,6 +1218,11 @@ footer ul li a {
 @media (max-width: 768px) {
   #cars .custom-container .car-box img {
     height: 80px;
+  }
+}
+@media (min-width: 1600px) {
+  #cars .custom-container .car-box img {
+    height: 200px;
   }
 }
 #cars .custom-container .car-box .price {

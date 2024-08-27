@@ -583,18 +583,13 @@ header {
     img {
       width: 100%;
       object-fit: cover;
-      height: 500px;
+      height: 650px;
       margin-top: 20px;
       @media (max-width: 991px) {
         height: 300px;
       }
-      @media (min-width: 1600px) {
-        margin-top: 10px;
-        height: 600px;
-      }
     }
     .rightbox {
-      margin-top: 15px;
       p {
         font-size: 14px;
         @media (min-width: 1600px) {
@@ -710,6 +705,7 @@ footer {
     a {
       text-decoration: none;
       color: black;
+      padding-right: 16px;
       i {
         margin-top: 10px;
       }

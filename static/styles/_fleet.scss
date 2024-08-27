@@ -68,6 +68,9 @@
         @media (max-width: 768px){
           height: 80px;
         }
+        @media (min-width: 1600px){
+          height: 200px;
+        }
       }
       .price {
         background-color: rgb(179, 4, 4);
@@ -98,6 +101,7 @@
     }
   }
 }
+
 #include-fleet-form {
   background-color: #f5f6f9;
   padding-bottom: 50px;
