@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-08-28 15:22+0400\n"
+"POT-Creation-Date: 2024-08-28 16:01+0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -520,6 +520,10 @@ msgstr "Трансферы&Туры"
 #: .\templates\layout.html:283
 msgid "Contact Us"
 msgstr "Контакты "
+
+#: .\templates\layout.html:231
+msgid "Need help?"
+msgstr "Нужна помощь?"
 
 #: .\templates\layout.html:235
 msgid "Call us"
