@@ -91,19 +91,23 @@
             {% get_current_language as LANGUAGE_CODE %}
             {% if LANGUAGE_CODE == "ru" %}
                 <i class="flag-icon flag-icon-ru"></i>
-                <a id="select-current">Russian</a>
+                <a id="select-current">{% trans "Russian" %}</a>
             {% else %}
                 <i class="flag-icon flag-icon-gb"></i>
-                <a id="select-current">English</a>
+                <a id="select-current">{% trans "English" %}</a>
             {% endif %}
             <i class="fa-solid fa-chevron-down"></i>
             <div class="language-open-menu">
                 {% if LANGUAGE_CODE == "ru" %}
-                    <i class="flag-icon flag-icon-gb"></i>
-                    <a id="select-english">English</a>
+                <div class="d-flex">
+                  <i class="flag-icon flag-icon-gb"></i>
+                  <a id="select-english">{% trans "English" %}</a>
+                </div>
                 {% else %}
-                    <i class="flag-icon flag-icon-ru"></i>
-                    <a id="select-russian">Russian</a>
+                <div class="d-flex">
+                  <i class="flag-icon flag-icon-ru"></i>
+                  <a id="select-russian">{% trans "Russian" %}</a>
+                </div>
                 {% endif %}
             </div>
           </div>
@@ -186,11 +190,11 @@
               <div class="d-flex justify-content-around">
                   <div id="responsive-english">
                       <i class="flag-icon flag-icon-gb"></i>
-                      English
+                      {% trans "English" %}
                   </div>
                   <div id="responsive-russian">
                       <i class="flag-icon flag-icon-ru"></i>
-                      Russian
+                      {% trans "Russian" %}
                   </div>
               </div>
           </div>
@@ -287,7 +291,7 @@
       <section id="copyright">
         <div class="container">
           <div class="d-flex justify-content-between">
-            <div>Copyright © <span id="year"></span> by Lux Trip Baku</div>
+            <div>Copyright © <span id="year"></span> by Lux Trip Baku. {% trans "All rights reserved" %}</div>
             <div>Lux Trip Baku</div>
           </div>
         </div>

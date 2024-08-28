@@ -79,6 +79,7 @@
       <section id="include-tour-form">
         <div class="custom-container">
           <h2 class="text-center">{% trans "Tour booking" %}</h2>
+          <h2 class="text-center hide">{% trans "Transfer booking" %}</h2>
           <div class="categories d-flex">
             <div class="category category1">{% trans "Transfer booking" %}</div>
             <div class="category category2 active-category">{% trans "Tour booking" %}</div>
@@ -158,7 +159,9 @@
                           {% for value, label in fleetform.car_class.field.choices %}
                               <li data-value="{{ value }}">
                                   {{ label }}
-                                  <img src="{% static 'assets/'|add:value|add:'.png' %}" alt="{{ label }} Icon" />
+                                {% if value != 'any' %}
+                                    <img src="{% static 'assets/'|add:value|add:'.png' %}" alt="{{ label }} Icon" />
+                                {% endif %}
                               </li>
                           {% endfor %}
                       </ul>
@@ -287,7 +290,9 @@
                       {% for value, label in tourform.car_class.field.choices %}
                           <li data-value="{{ value }}">
                               {{ label }}
-                              <img src="{% static 'assets/'|add:value|add:'.png' %}" alt="{{ label }} Icon" />
+                              {% if value != 'any' %}
+                                <img src="{% static 'assets/'|add:value|add:'.png' %}" alt="{{ label }} Icon" />
+                              {% endif %}
                           </li>
                       {% endfor %}
                   </ul>

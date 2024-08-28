@@ -148,6 +148,14 @@ $(document).ready(function () {
   });
 });
 
+// main forms More details functionality 
+$(document).ready(function() {
+  $('.toggle-btn button').click(function() {
+    $('.hiddeninputs').slideToggle(300);
+    var icon = $(this).find('i');
+    icon.toggleClass('fa-chevron-down fa-chevron-up'); 
+  });
+});
 
 // main forms change image
 document.addEventListener("DOMContentLoaded", function () {
@@ -274,3 +282,56 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 });
+
+
+// tour form and fleet form change h2 at click 
+document.addEventListener('DOMContentLoaded', function() {
+  function setupCategoryToggle(formId, startCategory) {
+      const formSection = document.querySelector(`#${formId}`);
+
+      if (!formSection) {
+          console.error(`Element with ID #${formId} not found!`);
+          return;
+      }
+
+      const category1 = formSection.querySelector(`.${startCategory}`);
+      const category2 = formSection.querySelector(`.${startCategory === 'category1' ? 'category2' : 'category1'}`);
+      const headings = formSection.querySelectorAll('h2');
+
+      if (category1 && category2 && headings.length === 2) {
+          if (category1.classList.contains('active-category')) {
+              headings[0].classList.remove('hide');
+              headings[1].classList.add('hide');
+          } else {
+              headings[0].classList.add('hide');
+              headings[1].classList.remove('hide');
+          }
+
+          category1.addEventListener('click', function() {
+              category1.classList.add('active-category');
+              category2.classList.remove('active-category');
+              headings[0].classList.remove('hide');
+              headings[1].classList.add('hide');
+          });
+
+          category2.addEventListener('click', function() {
+              category2.classList.add('active-category');
+              category1.classList.remove('active-category');
+              headings[1].classList.remove('hide');
+              headings[0].classList.add('hide');
+          });
+      } else {
+          console.error(`Missing one or more elements in #${formId}`);
+      }
+  }
+
+  if (document.querySelector('#include-tour-form')) {
+      setupCategoryToggle('include-tour-form', 'category2'); 
+  }
+
+  if (document.querySelector('#include-fleet-form')) {
+      setupCategoryToggle('include-fleet-form', 'category1'); 
+  }
+});
+
+

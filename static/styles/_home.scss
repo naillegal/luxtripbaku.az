@@ -77,17 +77,27 @@
     .language-open-menu {
       display: none;
       background-color: #1a2b48;
-      padding: 20px 5px;
+      padding: 20px 10px;
       border-radius: 5px;
       position: absolute;
       top: 100%;
       left: 0%;
+      z-index: 2000;
+      i{
+        margin-right: 5px;
+      }
     }
   }
 }
 
 header {
-  padding: 10px 0px;
+  padding: 10px 0;
+  position: sticky; 
+  top: 0;
+  z-index: 1000; 
+  background-color: white; 
+  transition: top 0.3s; 
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
   .logo {
     img {
       object-fit: cover;
@@ -241,6 +251,9 @@ header {
         background-color: #ffffff;
         padding: 15px 40px;
         border-radius: 10px;
+        .hiddeninputs{
+          display: none;
+        }
 
         @media (min-width: 1600px) {
           padding: 15px 90px;
@@ -408,6 +421,9 @@ header {
         border-radius: 10px;
         width: 90%;
         margin: auto;
+        .hiddeninputs{
+          display: none;
+        }
 
         @media (min-width: 1600px) {
           padding: 15px 90px;

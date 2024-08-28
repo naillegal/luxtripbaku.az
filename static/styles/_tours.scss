@@ -168,6 +168,9 @@
     h2 {
       padding: 30px 0px;
     }
+    .hide{
+      display: none;
+    }
     .categories {
       @media (max-width: 991px) {
         justify-content: center;

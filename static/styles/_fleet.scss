@@ -62,16 +62,22 @@
     }
     .car-box {
       img {
-        height: 150px;
         width: 100%;
-        object-fit: cover;
-        @media (max-width: 768px){
+        height: 150px; 
+        object-fit: cover; 
+        object-position: center; 
+        @media (max-width: 650px){
           height: 80px;
+          object-fit: fill;
         }
-        @media (min-width: 1600px){
-          height: 200px;
+        @media (min-width: 651px) and (max-width: 768px) {
+          height: 120px;
+        }
+        @media (min-width: 1500px) and (max-width: 2200px) {
+          height: 250px;
         }
       }
+
       .price {
         background-color: rgb(179, 4, 4);
         padding: 10px;
@@ -79,22 +85,24 @@
         margin: 5px 0px;
         font-size: 13px;
         text-align: center;
-        @media (max-width: 991px){
+        @media (max-width: 991px) {
           font-size: 10px;
-
         }
+        // @media (max-width: 568px) {
+        //   margin: 0px 0px 5px 0px;
+        // }
       }
       .car-name {
         font-weight: bold;
         margin-top: 5px;
       }
-      .personbagcount{
+      .personbagcount {
         font-weight: bold;
-        i{
+        i {
           margin-top: 2px;
           margin-right: 2px;
         }
-        .bag{
+        .bag {
           margin: 0px 8px;
         }
       }
@@ -114,6 +122,9 @@
     }
     h2 {
       padding: 30px 0px;
+    }
+    .hide {
+      display: none;
     }
     .categories {
       @media (max-width: 991px) {
@@ -218,7 +229,7 @@
               &:hover {
                 background-color: #f0f0f0;
               }
-              &:first-child{
+              &:first-child {
                 display: none;
               }
             }

@@ -76,15 +76,25 @@
 #startline .rightside .language-open-menu {
   display: none;
   background-color: #1a2b48;
-  padding: 20px 5px;
+  padding: 20px 10px;
   border-radius: 5px;
   position: absolute;
   top: 100%;
   left: 0%;
+  z-index: 2000;
+}
+#startline .rightside .language-open-menu i {
+  margin-right: 5px;
 }
 
 header {
-  padding: 10px 0px;
+  padding: 10px 0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background-color: white;
+  transition: top 0.3s;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 header .logo {
   cursor: pointer;
@@ -234,6 +244,9 @@ header .responsive-openmenu .responsive-openmenu-icons a i {
   background-color: #ffffff;
   padding: 15px 40px;
   border-radius: 10px;
+}
+#main-forms .custom-container .rightside form .hiddeninputs {
+  display: none;
 }
 @media (min-width: 1600px) {
   #main-forms .custom-container .rightside form {
@@ -385,6 +398,9 @@ header .responsive-openmenu .responsive-openmenu-icons a i {
   border-radius: 10px;
   width: 90%;
   margin: auto;
+}
+#main-forms .responsive-custom-container .rightside form .hiddeninputs {
+  display: none;
 }
 @media (min-width: 1600px) {
   #main-forms .responsive-custom-container .rightside form {
@@ -753,9 +769,6 @@ footer ul li a {
   }
   #blog-detail .container .content .custom-flex .social {
     margin-top: 20px;
-  }
-  #cars .custom-container .row .car-box img {
-    height: 100px;
   }
   #cars .custom-container .row .car-box .car-name {
     font-size: 12px;
@@ -1210,19 +1223,28 @@ footer ul li a {
   border: 1px solid green;
 }
 #cars .custom-container .car-box img {
-  height: 150px;
   width: 100%;
+  height: 150px;
   -o-object-fit: cover;
      object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
 }
-@media (max-width: 768px) {
+@media (max-width: 650px) {
   #cars .custom-container .car-box img {
     height: 80px;
+    -o-object-fit: fill;
+       object-fit: fill;
   }
 }
-@media (min-width: 1600px) {
+@media (min-width: 651px) and (max-width: 768px) {
   #cars .custom-container .car-box img {
-    height: 200px;
+    height: 120px;
+  }
+}
+@media (min-width: 1500px) and (max-width: 2200px) {
+  #cars .custom-container .car-box img {
+    height: 250px;
   }
 }
 #cars .custom-container .car-box .price {
@@ -1269,6 +1291,9 @@ footer ul li a {
 }
 #include-fleet-form .custom-container h2 {
   padding: 30px 0px;
+}
+#include-fleet-form .custom-container .hide {
+  display: none;
 }
 @media (max-width: 991px) {
   #include-fleet-form .custom-container .categories {
@@ -1549,6 +1574,9 @@ footer ul li a {
 }
 #include-tour-form .custom-container h2 {
   padding: 30px 0px;
+}
+#include-tour-form .custom-container .hide {
+  display: none;
 }
 @media (max-width: 991px) {
   #include-tour-form .custom-container .categories {

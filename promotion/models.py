@@ -1,5 +1,5 @@
 from django.db import models
-
+from django.utils.translation import gettext_lazy as _
 # Create your models here.
 
 # Tour Model 
@@ -182,20 +182,21 @@ class HomeFirstContent(models.Model):
 # FleetForm Model 
 class FleetForm(models.Model):
     PICKUP_LOCATION_CHOICES = [
-        ('gyd-airport', 'from GYD airport'),
-        ('hotel', 'from Hotel'),
+        ('gyd-airport', _('from GYD airport')),
+        ('hotel', _('from Hotel')),
     ]
     
     CAR_CLASS_CHOICES = [
-        ('economy', 'Economy'),
-        ('comfort', 'Comfort'),
-        ('business', 'Business'),
-        ('premium', 'Premium'),
-        ('vip', 'VIP'),
-        ('suv', 'SUV'),
-        ('van', 'Van'),
-        ('minibus', 'Minibus'),
-        ('bus', 'Bus'),
+        ('any', _('Any')),
+        ('economy', _('Economy')),
+        ('comfort', _('Comfort')),
+        ('business', _('Business')),
+        ('premium', _('Premium')),
+        ('vip', _('VIP')),
+        ('suv', _('SUV')),
+        ('van', _('Van')),
+        ('minibus', _('Minibus')),
+        ('bus', _('Bus')),
     ]
     
     pickup_location = models.CharField(max_length=255, choices=PICKUP_LOCATION_CHOICES)
@@ -223,15 +224,16 @@ class FleetForm(models.Model):
 # TourForm Model 
 class TourForm(models.Model):
     CAR_CLASS_CHOICES = [
-        ('economy', 'Economy'),
-        ('comfort', 'Comfort'),
-        ('business', 'Business'),
-        ('premium', 'Premium'),
-        ('vip', 'VIP'),
-        ('suv', 'SUV'),
-        ('van', 'Van'),
-        ('minibus', 'Minibus'),
-        ('bus', 'Bus'),
+        ('any', _('Any')),
+        ('economy', _('Economy')),
+        ('comfort', _('Comfort')),
+        ('business', _('Business')),
+        ('premium', _('Premium')),
+        ('vip', _('VIP')),
+        ('suv', _('SUV')),
+        ('van', _('Van')),
+        ('minibus', _('Minibus')),
+        ('bus', _('Bus')),
     ]
     
     select_city = models.ManyToManyField(City, related_name='select_city')
