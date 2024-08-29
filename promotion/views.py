@@ -2,6 +2,8 @@ from django.shortcuts import render, redirect
 from .models import Tour, Car, Faq, HomeFirstContent, Whoweare
 from .forms import CityFilterForm, ContactRequestForm, UpdatesRequestForm, FleetFormModelForm, TourFormModelForm
 from django.contrib import messages
+from django.core.mail import send_mail
+from django.conf import settings
 # Create your views here.
 
 
@@ -45,6 +47,13 @@ def submit_fleet_form(request):
         fleetform = FleetFormModelForm(request.POST, prefix='fleet_')
         if fleetform.is_valid():
             fleetform.save()
+            send_mail(
+                'A New Fleet Form Has Been Sent',  
+                'Details are available in the admin panel.', 
+                settings.EMAIL_HOST_USER,  
+                ['test@example.com'],  
+                fail_silently=False,
+            )
             messages.success(
                 request, 'Your request has been sent! Thank you for choosing us!')
             return redirect('/')

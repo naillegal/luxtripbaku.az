@@ -37,6 +37,9 @@
   color: #fff;
   transform: scale(1.1);
 }
+#fixed-buttons .instagradient {
+  background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+}
 
 #startline {
   background-color: #1a2b48;
@@ -1230,19 +1233,17 @@ footer ul li a {
   -o-object-position: center;
      object-position: center;
 }
-@media (max-width: 650px) {
+@media (min-width: 0px) and (max-width: 500px) {
   #cars .custom-container .car-box img {
-    height: 80px;
-    -o-object-fit: fill;
-       object-fit: fill;
+    height: 100px;
   }
 }
-@media (min-width: 651px) and (max-width: 768px) {
+@media (min-width: 501px) and (max-width: 1200px) {
   #cars .custom-container .car-box img {
-    height: 120px;
+    height: 150px;
   }
 }
-@media (min-width: 1500px) and (max-width: 2200px) {
+@media (min-width: 1600px) and (max-width: 2200px) {
   #cars .custom-container .car-box img {
     height: 250px;
   }
