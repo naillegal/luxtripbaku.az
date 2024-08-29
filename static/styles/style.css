@@ -1507,7 +1507,7 @@ footer ul li a {
 }
 #tours-info .tourbytour .swiper .swiper-pagination {
   position: absolute;
-  top: 60%;
+  top: 57%;
   left: 50%;
   transform: translateX(-50%);
   display: flex;

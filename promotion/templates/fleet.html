@@ -36,9 +36,25 @@
             <div class="col-6 col-md-4 col-lg-3">
                 <div class="car-box">
                     <img src="{{ car.image.url }}" alt="{{ car.name }}" />
-                    {% for price in car.prices.all %}
-                        <div class="price">{{ price.price|floatformat:0 }}USD / {{ price.way_count }}{% trans "-way" %}</div>
-                    {% endfor %}
+                    
+                    <!-- 1-way price div -->
+                    <div class="price">
+                        {% for price in car.prices.all %}
+                            {% if price.way_count == 1 %}
+                                {{ price.price|floatformat:0 }} USD / {% trans "1 way" %}
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                    
+                    <!-- 2-way price div -->
+                    <div class="price">
+                        {% for price in car.prices.all %}
+                            {% if price.way_count == 2 %}
+                                {{ price.price|floatformat:0 }} USD / {% trans "2 way" %}
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                    
                     <div class="car-name">{{ car.name }}</div>
                     <hr />
                     <div class="car-banner-lux">{{ car.ban_type }}/{{ car.lux_type }}</div>
@@ -53,6 +69,7 @@
                         </div>
                     </div>
                 </div>
+                
             </div>
             {% endfor %}
         </div>
