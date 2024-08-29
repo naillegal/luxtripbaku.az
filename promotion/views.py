@@ -2,6 +2,8 @@ from django.shortcuts import render, redirect
 from .models import Tour, Car, Faq, HomeFirstContent, Whoweare
 from .forms import CityFilterForm, ContactRequestForm, UpdatesRequestForm, FleetFormModelForm, TourFormModelForm
 from django.contrib import messages
+from django.core.mail import send_mail
+from django.conf import settings
 # Create your views here.
 
 
@@ -45,12 +47,19 @@ def submit_fleet_form(request):
         fleetform = FleetFormModelForm(request.POST, prefix='fleet_')
         if fleetform.is_valid():
             fleetform.save()
+            send_mail(
+                'You have a new Transfer Form',  
+                'Details are available in the admin panel.', 
+                settings.EMAIL_HOST_USER,  
+                ['luxtripbaku@gmail.com'],  
+                fail_silently=False,
+            )
             messages.success(
-                request, 'Your request has been sent! Thank you for choosing us!')
+                request, 'Your transfer request has been sent! Thank you for choosing us!')
             return redirect('/')
         else:
             messages.error(
-                request, 'Fleet form submission failed. Please correct the errors.')
+                request, 'Transfer form submission failed. Please correct the errors.')
             return render(request, 'index.html', {
                 'fleetform': fleetform,
                 'tourform': TourFormModelForm(prefix='tour_'),
@@ -64,6 +73,13 @@ def submit_tour_form(request):
         tourform = TourFormModelForm(request.POST, prefix='tour_')
         if tourform.is_valid():
             tourform.save()
+            send_mail(
+                'You have a new Tour Form',  
+                'Details are available in the admin panel.', 
+                settings.EMAIL_HOST_USER,  
+                ['luxtripbaku@gmail.com'],  
+                fail_silently=False,
+            )
             messages.success(
                 request, 'Your tour request has been sent! Thank you for choosing us!')
             return redirect('/')
@@ -184,6 +200,13 @@ def submit_contact_request(request):
         form = ContactRequestForm(request.POST)
         if form.is_valid():
             form.save()
+            send_mail(
+                'You have a new Contact Form',  
+                'Details are available in the admin panel.', 
+                settings.EMAIL_HOST_USER,  
+                ['luxtripbaku@gmail.com'],  
+                fail_silently=False,
+            )
             return redirect('/contact?submit=success')
         else:
             for errors in form.errors.items():
