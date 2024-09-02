@@ -1458,6 +1458,7 @@ footer ul li a {
 #tours-info .filter form select {
   outline: none;
   border-radius: 5px;
+  width: 100px;
 }
 #tours-info .filter form button {
   margin-left: 10px;
@@ -1507,7 +1508,7 @@ footer ul li a {
 }
 #tours-info .tourbytour .swiper .swiper-pagination {
   position: absolute;
-  top: 57%;
+  bottom: 3%;
   left: 50%;
   transform: translateX(-50%);
   display: flex;
@@ -1516,7 +1517,7 @@ footer ul li a {
 #tours-info .tourbytour .swiper .swiper-pagination .swiper-pagination-bullet {
   width: 10px;
   height: 10px;
-  background-color: white;
+  background-color: gray;
   border-radius: 50%;
   opacity: 0.8;
   transition: background-color 0.2s ease-in-out;
@@ -1528,16 +1529,15 @@ footer ul li a {
 #tours-info .tourbytour .swiper .swiper-button-prev,
 #tours-info .tourbytour .swiper .swiper-button-next {
   position: absolute;
-  top: 43%;
-  transform: translateY(-50%);
-  width: 30px;
-  height: 30px;
+  top: 50%;
+  width: 32px;
+  height: 32px;
   color: white;
   border-radius: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 16px;
+  font-size: 20px;
   transition: background-color 0.2s ease-in-out;
   background-color: rgba(0, 0, 0, 0.5);
 }
