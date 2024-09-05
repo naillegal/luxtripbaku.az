@@ -76,10 +76,18 @@
               <div class="startline">
                 <span>|</span>
               </div>
-              <div class="startcontact">
+              <div class="startcontact d-flex">
                 {% for info in infos %}
                 {% if info.type == 'email' %}
                 <a href="mailto:{{ info.content }}">
+                {{ info.content }}
+                </a>
+                {% endif %}
+                {% if info.type == 'number' %}
+                <div class="startline">
+                  <span>|</span>
+                </div>
+                <a href="tel:{{ info.content }}">
                 {{ info.content }}
                 </a>
                 {% endif %}

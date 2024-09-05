@@ -61,6 +61,8 @@
     .custom-flex {
       display: flex;
       .tags {
+        flex-wrap: wrap;
+        gap: 10px;
         .tag-box {
           cursor: pointer;
           background-color: #0a4e8c;

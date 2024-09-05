@@ -2,7 +2,7 @@
   position: relative;
   img {
     width: 100%;
-    height: 400px;
+    height: 500px;
     object-fit: cover;
     filter: brightness(50%);
   }
@@ -13,6 +13,9 @@
     color: white;
     transform: translate(-50%, -50%);
     text-align: center;
+    h5{
+      margin-top: 15px;
+    }
   }
 }
 
@@ -92,7 +95,8 @@
           .tour-info {
             padding: 10px 0px;
             font-size: 13px;
-            color: gray;
+            color:#5191fa;
+            font-weight: 600;
           }
         }
       }
@@ -114,7 +118,7 @@
           transition: background-color 0.2s ease-in-out;
           
           &.swiper-pagination-bullet-active {
-            background-color: blue;
+            background-color: #5191fa;
             opacity: 1;
           }
         }
