@@ -1,34 +1,44 @@
 // languange-menu
-document.querySelector(".rightside").addEventListener("click", function(e) {
+document.querySelector(".rightside").addEventListener("click", function (e) {
   const languageMenu = document.querySelector(".language-open-menu");
-  
-  if (e.target.classList.contains('fa-chevron-down') || e.target.id === 'select-current') {
-      $(languageMenu).slideToggle(300);
+
+  if (
+    e.target.classList.contains("fa-chevron-down") ||
+    e.target.id === "select-current"
+  ) {
+    $(languageMenu).slideToggle(300);
   }
 });
 
-document.getElementById('select-english')?.addEventListener('click', function(e) {
-  e.preventDefault();
-  document.getElementById('lang-select').value = 'en';
-  document.getElementById('lang-form').submit();
-});
+document
+  .getElementById("select-english")
+  ?.addEventListener("click", function (e) {
+    e.preventDefault();
+    document.getElementById("lang-select").value = "en";
+    document.getElementById("lang-form").submit();
+  });
 
-document.getElementById('select-russian')?.addEventListener('click', function(e) {
-  e.preventDefault();
-  document.getElementById('lang-select').value = 'ru';
-  document.getElementById('lang-form').submit();
-});
+document
+  .getElementById("select-russian")
+  ?.addEventListener("click", function (e) {
+    e.preventDefault();
+    document.getElementById("lang-select").value = "ru";
+    document.getElementById("lang-form").submit();
+  });
 
-document.getElementById('responsive-english')?.addEventListener('click', function() {
-  document.getElementById('lang-select').value = 'en';
-  document.getElementById('lang-form').submit();
-});
+document
+  .getElementById("responsive-english")
+  ?.addEventListener("click", function () {
+    document.getElementById("lang-select").value = "en";
+    document.getElementById("lang-form").submit();
+  });
 
-document.getElementById('responsive-russian')?.addEventListener('click', function() {
-  document.getElementById('lang-select').value = 'ru';
-  document.getElementById('lang-form').submit();
-});
-
+document
+  .getElementById("responsive-russian")
+  ?.addEventListener("click", function () {
+    document.getElementById("lang-select").value = "ru";
+    document.getElementById("lang-form").submit();
+  });
 
 // responsive-navbar
 $(document).ready(function () {
@@ -148,12 +158,12 @@ $(document).ready(function () {
   });
 });
 
-// main forms More details functionality 
-$(document).ready(function() {
-  $('.toggle-btn button').click(function() {
-    $('.hiddeninputs').slideToggle(300);
-    var icon = $(this).find('i');
-    icon.toggleClass('fa-chevron-down fa-chevron-up'); 
+// main forms More details functionality
+$(document).ready(function () {
+  $(".toggle-btn button").click(function () {
+    $(".hiddeninputs").slideToggle(300);
+    var icon = $(this).find("i");
+    icon.toggleClass("fa-chevron-down fa-chevron-up");
   });
 });
 
@@ -239,29 +249,15 @@ var swiper = new Swiper(".mySwiper", {
   },
 });
 
+// Custom car select
 document.addEventListener("DOMContentLoaded", function () {
-  // All phone inputs start with +
-  const phoneInputs = document.querySelectorAll('input[name="phone"]');
-  phoneInputs.forEach(function (phoneInput) {
-    if (phoneInput.value === "") {
-      phoneInput.value = "+";
-    }
-
-    phoneInput.addEventListener("input", function (e) {
-      if (e.target.value.charAt(0) !== "+") {
-        e.target.value = "+" + e.target.value.replace(/^\+/, "");
-      }
-    });
-  });
-
-  // Custom car select
   document.querySelectorAll(".custom-select").forEach((select) => {
     const selectedOption = select.querySelector(".selected-option");
     const optionsList = select.querySelector(".options");
     const hiddenSelect = select.querySelector("select");
 
     const options = optionsList.querySelectorAll("li");
-    const secondOption = options[1]; 
+    const secondOption = options[1];
 
     if (secondOption) {
       hiddenSelect.value = secondOption.getAttribute("data-value");
@@ -283,55 +279,69 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
-
-// tour form and fleet form change h2 at click 
-document.addEventListener('DOMContentLoaded', function() {
+// tour form and fleet form change h2 at click
+document.addEventListener("DOMContentLoaded", function () {
   function setupCategoryToggle(formId, startCategory) {
-      const formSection = document.querySelector(`#${formId}`);
+    const formSection = document.querySelector(`#${formId}`);
 
-      if (!formSection) {
-          console.error(`Element with ID #${formId} not found!`);
-          return;
-      }
+    if (!formSection) {
+      console.error(`Element with ID #${formId} not found!`);
+      return;
+    }
 
-      const category1 = formSection.querySelector(`.${startCategory}`);
-      const category2 = formSection.querySelector(`.${startCategory === 'category1' ? 'category2' : 'category1'}`);
-      const headings = formSection.querySelectorAll('h2');
+    const category1 = formSection.querySelector(`.${startCategory}`);
+    const category2 = formSection.querySelector(
+      `.${startCategory === "category1" ? "category2" : "category1"}`
+    );
+    const headings = formSection.querySelectorAll("h2");
 
-      if (category1 && category2 && headings.length === 2) {
-          if (category1.classList.contains('active-category')) {
-              headings[0].classList.remove('hide');
-              headings[1].classList.add('hide');
-          } else {
-              headings[0].classList.add('hide');
-              headings[1].classList.remove('hide');
-          }
-
-          category1.addEventListener('click', function() {
-              category1.classList.add('active-category');
-              category2.classList.remove('active-category');
-              headings[0].classList.remove('hide');
-              headings[1].classList.add('hide');
-          });
-
-          category2.addEventListener('click', function() {
-              category2.classList.add('active-category');
-              category1.classList.remove('active-category');
-              headings[1].classList.remove('hide');
-              headings[0].classList.add('hide');
-          });
+    if (category1 && category2 && headings.length === 2) {
+      if (category1.classList.contains("active-category")) {
+        headings[0].classList.remove("hide");
+        headings[1].classList.add("hide");
       } else {
-          console.error(`Missing one or more elements in #${formId}`);
+        headings[0].classList.add("hide");
+        headings[1].classList.remove("hide");
       }
+
+      category1.addEventListener("click", function () {
+        category1.classList.add("active-category");
+        category2.classList.remove("active-category");
+        headings[0].classList.remove("hide");
+        headings[1].classList.add("hide");
+      });
+
+      category2.addEventListener("click", function () {
+        category2.classList.add("active-category");
+        category1.classList.remove("active-category");
+        headings[1].classList.remove("hide");
+        headings[0].classList.add("hide");
+      });
+    } else {
+      console.error(`Missing one or more elements in #${formId}`);
+    }
   }
 
-  if (document.querySelector('#include-tour-form')) {
-      setupCategoryToggle('include-tour-form', 'category2'); 
+  if (document.querySelector("#include-tour-form")) {
+    setupCategoryToggle("include-tour-form", "category2");
   }
 
-  if (document.querySelector('#include-fleet-form')) {
-      setupCategoryToggle('include-fleet-form', 'category1'); 
+  if (document.querySelector("#include-fleet-form")) {
+    setupCategoryToggle("include-fleet-form", "category1");
   }
 });
 
+// All phone inputs start with +
+document.addEventListener('DOMContentLoaded', function() {
+  const phoneInput = document.querySelector('input[name="phone"]');
 
+  phoneInput.addEventListener('input', function(event) {
+      if (!event.target.value.startsWith('+')) {
+          event.target.value = '+' + event.target.value.replace(/^\+/, '');
+      }
+  });
+
+  if (!phoneInput.value.startsWith('+')) {
+      phoneInput.value = '+' + phoneInput.value;
+  }
+});

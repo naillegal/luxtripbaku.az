@@ -77,7 +77,7 @@ class FleetFormModelForm(forms.ModelForm):
     phone = forms.CharField(
         validators=[phone_validator],
         widget=forms.TextInput(
-            attrs={'class': 'form-control', 'placeholder': '+'})
+            attrs={'class': 'form-control', 'value': '+', 'maxlength': '15'})
     )
 
     class Meta:
@@ -96,7 +96,7 @@ class FleetFormModelForm(forms.ModelForm):
             'dropoff_location': forms.TextInput(attrs={'class': 'form-control', 'placeholder': _('Drop location here')}),
             'full_name': forms.TextInput(attrs={'class': 'form-control', 'placeholder': _('Type your full name here')}),
             'email': forms.EmailInput(attrs={'class': 'form-control', 'placeholder': _('example@gmail.com')}),
-            'phone': forms.TextInput(attrs={'class': 'form-control', 'placeholder': '+'}),
+            'phone': forms.TextInput(attrs={'class': 'form-control', 'value': '+', 'maxlength': '15'}),
             'flight_number': forms.TextInput(attrs={'class': 'form-control', 'placeholder': _('Your flight number here')}),
         }
 
@@ -111,7 +111,7 @@ class TourFormModelForm(forms.ModelForm):
     phone = forms.CharField(
         validators=[phone_validator],
         widget=forms.TextInput(
-            attrs={'class': 'form-control', 'placeholder': '+'})
+            attrs={'class': 'form-control', 'value': '+', 'maxlength': '15'})
     )
 
     class Meta:
@@ -128,5 +128,5 @@ class TourFormModelForm(forms.ModelForm):
             'additional_request': forms.Textarea(attrs={'class': 'form-control', 'rows': 3, 'placeholder': _('Any additional requests?')}),
             'full_name': forms.TextInput(attrs={'class': 'form-control', 'placeholder': _('Type your full name here')}),
             'email': forms.EmailInput(attrs={'class': 'form-control', 'placeholder': _('example@gmail.com')}),
-            'phone': forms.TextInput(attrs={'class': 'form-control', 'placeholder': '+'}),
+            'phone': forms.TextInput(attrs={'class': 'form-control', 'value': '+', 'maxlength': '15'}),
         }

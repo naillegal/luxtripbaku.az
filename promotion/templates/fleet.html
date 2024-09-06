@@ -88,7 +88,7 @@
       <form class="fleet-form" action="{% url 'promotion:submit_fleet_form' %}" method="post">
         {% csrf_token %}
         {% if messages %}
-      {% for message in messages %}
+        {% for message in messages %}
         <div class="alert {% if 'success' in message.tags %}alert-success{% elif 'error' in message.tags %}alert-danger{% endif %} mt-3">
          {{ message }}
          {% if fleetform.errors %}
@@ -103,8 +103,8 @@
         </div>
         {% endif %}
         </div>
-      {% endfor %}
-      {% endif %}
+        {% endfor %}
+        {% endif %}
         
         <h6>
         {% trans "Please provide the transfer details below." %} 
