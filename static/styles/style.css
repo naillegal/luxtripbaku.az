@@ -259,6 +259,13 @@ header .responsive-openmenu .responsive-openmenu-icons a i {
 #main-forms .custom-container .rightside form .form-group {
   margin-top: 20px;
 }
+#main-forms .custom-container .rightside form .form-group .flag-icon {
+  font-size: 30px;
+  display: none;
+}
+#main-forms .custom-container .rightside form .form-group .active {
+  display: block;
+}
 #main-forms .custom-container .rightside form .form-group label {
   display: block;
   font-weight: bold;
@@ -412,6 +419,13 @@ header .responsive-openmenu .responsive-openmenu-icons a i {
 }
 #main-forms .responsive-custom-container .rightside form .form-group {
   margin-top: 20px;
+}
+#main-forms .responsive-custom-container .rightside form .form-group .flag-icon {
+  font-size: 30px;
+  display: none;
+}
+#main-forms .responsive-custom-container .rightside form .form-group .active {
+  display: block;
 }
 #main-forms .responsive-custom-container .rightside form .form-group label {
   display: block;
@@ -1342,6 +1356,13 @@ footer ul li a {
 #include-fleet-form .custom-container form .form-group {
   margin-top: 20px;
 }
+#include-fleet-form .custom-container form .form-group .flag-icon {
+  font-size: 30px;
+  display: none;
+}
+#include-fleet-form .custom-container form .form-group .active {
+  display: block;
+}
 #include-fleet-form .custom-container form .form-group label {
   display: block;
   font-weight: bold;
@@ -1628,6 +1649,13 @@ footer ul li a {
 }
 #include-tour-form .custom-container form .form-group {
   margin-top: 20px;
+}
+#include-tour-form .custom-container form .form-group .flag-icon {
+  font-size: 30px;
+  display: none;
+}
+#include-tour-form .custom-container form .form-group .active {
+  display: block;
 }
 #include-tour-form .custom-container form .form-group label {
   display: block;

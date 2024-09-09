@@ -163,7 +163,7 @@ class HomeFirstContent(CustomTranslationAdmin):
 # FleetForm Admin 
 @admin.register(FleetForm)
 class FleetFormAdmin(admin.ModelAdmin):
-    list_display = ('full_name', 'email', 'phone', 'created', 'viewed')
+    list_display = ('full_name', 'email', 'country_code', 'phone', 'created', 'viewed')
     list_filter = ('viewed', 'date_of_service', 'car_class')
     search_fields = ('full_name', 'email', 'phone', 'dropoff_location', 'flight_number')
     readonly_fields = ('created',)
@@ -177,7 +177,7 @@ class FleetFormAdmin(admin.ModelAdmin):
 # TourForm Admin 
 @admin.register(TourForm)
 class TourFormAdmin(admin.ModelAdmin):
-    list_display = ('full_name', 'email', 'phone', 'created', 'viewed')
+    list_display = ('full_name', 'email', 'country_code', 'phone', 'created', 'viewed')
     list_filter = ('viewed', 'travel_date', 'car_class')
     search_fields = ('full_name', 'email', 'phone')
     readonly_fields = ('created',)

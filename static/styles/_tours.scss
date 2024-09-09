@@ -209,6 +209,14 @@
       .form-group {
         margin-top: 20px;
 
+        .flag-icon{
+          font-size: 30px;
+          display: none;
+        }
+        .active{
+          display: block;
+        }
+
         label {
           display: block;
           font-weight: bold;

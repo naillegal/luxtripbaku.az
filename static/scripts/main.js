@@ -345,3 +345,26 @@ document.addEventListener('DOMContentLoaded', function() {
       phoneInput.value = '+' + phoneInput.value;
   }
 });
+
+
+// phone flag icons 
+document.querySelectorAll('#country-code').forEach(function(selectElement) {
+  selectElement.addEventListener('change', function() {
+    const selectedCode = this.value;
+    const parentFormGroup = this.closest('.form-group');
+    
+    const flags = parentFormGroup.querySelectorAll('.flag-icon'); 
+    
+    flags.forEach(function(flag) {
+      flag.classList.remove('active');
+    });
+
+    const activeFlag = parentFormGroup.querySelector(`.flag-icon[data-code="${selectedCode}"]`);
+    if (activeFlag) {
+      activeFlag.classList.add('active');
+    }
+  });
+});
+
+
+

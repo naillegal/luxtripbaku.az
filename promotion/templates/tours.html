@@ -1,4 +1,5 @@
 {% extends "layout.html" %}
+{% load country_tags %}
 {% load static %}
 {% load i18n %}
 {% block title %}
@@ -212,11 +213,27 @@
         
             <!-- Phone -->
             <div class="form-group">
+                <label for="{{ fleetform.phone.id_for_label }}">{% trans "Cell Phone*" %}</label>
                 <div class="d-flex">
-                    <label for="{{ fleetform.phone.id_for_label }}">{% trans "Cell Phone*" %}</label>
-                    <i class="fa-solid fa-phone"></i>
+                    {% with fleetform.country_code.value as selected_code %}
+                        {% if not selected_code %}
+                            {% with fleetform.country_code.field.choices.0.0 as default_code %}
+                                {% for code, name in fleetform.country_code.field.choices %}
+                                    <i class="flag-icon flag-icon-{{ code|country_flag }}{% if default_code == code %} active{% endif %}" data-code="{{ code }}"></i>
+                                {% endfor %}
+                            {% endwith %}
+                        {% else %}
+                            {% for code, name in fleetform.country_code.field.choices %}
+                                <i class="flag-icon flag-icon-{{ code|country_flag }}{% if selected_code == code %} active{% endif %}" data-code="{{ code }}"></i>
+                            {% endfor %}
+                        {% endif %}
+                    {% endwith %}
+            
+                    <div style="width: 25%; margin:5px 10px;">
+                        {{ fleetform.country_code }}
+                    </div>
+                      {{ fleetform.phone }}
                 </div>
-                {{ fleetform.phone }}
             </div>
         
             <button class="btn btn-success" type="submit" name="fleet_submit" value="submit">{% trans "Submit" %}</button>
@@ -333,12 +350,28 @@
       
           <!-- Phone -->
           <div class="form-group">
-              <div class="d-flex">
-                  <label for="{{ tourform.phone.id_for_label }}">{% trans "Cell Phone*" %}</label>
-                  <i class="fa-solid fa-phone"></i>
-              </div>
-              {{ tourform.phone }}
-          </div>
+            <label for="{{ tourform.phone.id_for_label }}">{% trans "Cell Phone*" %}</label>
+            <div class="d-flex">
+              {% with tourform.country_code.value as selected_code %}
+              {% if not selected_code %}
+                  {% with tourform.country_code.field.choices.0.0 as default_code %}
+                      {% for code, name in tourform.country_code.field.choices %}
+                          <i class="flag-icon flag-icon-{{ code|country_flag }}{% if default_code == code %} active{% endif %}" data-code="{{ code }}"></i>
+                      {% endfor %}
+                  {% endwith %}
+              {% else %}
+                  {% for code, name in tourform.country_code.field.choices %}
+                      <i class="flag-icon flag-icon-{{ code|country_flag }}{% if selected_code == code %} active{% endif %}" data-code="{{ code }}"></i>
+                  {% endfor %}
+                {% endif %}
+              {% endwith %}
+                
+                <div style="width: 25%; margin:5px 10px;">
+                    {{ tourform.country_code }}
+                </div>
+                {{ tourform.phone }}
+            </div>
+        </div>
       
           <button class="btn btn-success" type="submit" name="tour_submit" value="submit">{% trans "Submit" %}</button>
         </form>

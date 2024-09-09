@@ -69,6 +69,52 @@ class UpdatesRequestForm(forms.ModelForm):
 
 # FleetForm
 class FleetFormModelForm(forms.ModelForm):
+    COUNTRY_CHOICES = [
+    ('+', '+'),         # Type your own
+    ('+994', '+994'),   # Azerbaijan
+    ('+1', '+1'),       # United States
+    ('+44', '+44'),     # United Kingdom
+    ('+90', '+90'),     # Turkey
+    ('+33', '+33'),     # France
+    ('+49', '+49'),     # Germany
+    ('+61', '+61'),     # Australia
+    ('+81', '+81'),     # Japan
+    ('+86', '+86'),     # China
+    ('+91', '+91'),     # India
+    ('+55', '+55'),     # Brazil
+    ('+7', '+7'),       # Russia
+    ('+34', '+34'),     # Spain
+    ('+39', '+39'),     # Italy
+    ('+52', '+52'),     # Mexico
+    ('+82', '+82'),     # South Korea
+    ('+27', '+27'),     # South Africa
+    ('+46', '+46'),     # Sweden
+    ('+31', '+31'),     # Netherlands
+    ('+45', '+45'),     # Denmark
+    ('+47', '+47'),     # Norway
+    ('+48', '+48'),     # Poland
+    ('+32', '+32'),     # Belgium
+    ('+420', '+420'),   # Czech Republic
+    ('+41', '+41'),     # Switzerland
+    ('+234', '+234'),   # Nigeria
+    ('+351', '+351'),   # Portugal
+    ('+66', '+66'),     # Thailand
+    ('+971', '+971'),   # United Arab Emirates
+    ('+92', '+92'),     # Pakistan
+    ('+63', '+63'),     # Philippines
+    ('+60', '+60'),     # Malaysia
+    ('+353', '+353'),   # Ireland
+    ('+62', '+62'),     # Indonesia
+    ('+64', '+64'),     # New Zealand
+    ('+998', '+998'),   # Uzbekistan
+]
+
+    country_code = forms.ChoiceField(
+        choices=COUNTRY_CHOICES, 
+        widget=forms.Select(attrs={'class': 'form-control', 'id': 'country-code'}),
+        initial='+994'
+    )
+
     phone_validator = RegexValidator(
         regex=r'^[\d\+\-\(\) ]+$',
         message=_("Phone number must contain only digits and symbols (+, -, (, ), space).")
@@ -77,7 +123,7 @@ class FleetFormModelForm(forms.ModelForm):
     phone = forms.CharField(
         validators=[phone_validator],
         widget=forms.TextInput(
-            attrs={'class': 'form-control', 'value': '+', 'maxlength': '15'})
+            attrs={'class': 'form-control', 'maxlength': '15', 'placeholder': _('Enter your number here')})
     )
 
     class Meta:
@@ -85,7 +131,7 @@ class FleetFormModelForm(forms.ModelForm):
         fields = [
             'pickup_location', 'dropoff_location', 'date_of_service',
             'time_of_service', 'car_class', 'flight_number',
-            'additional_request', 'full_name', 'email', 'phone'
+            'additional_request', 'full_name', 'email', 'country_code', 'phone'
         ]
         widgets = {
             'date_of_service': forms.DateInput(attrs={'class': 'form-control', 'type': 'date'}),
@@ -96,13 +142,58 @@ class FleetFormModelForm(forms.ModelForm):
             'dropoff_location': forms.TextInput(attrs={'class': 'form-control', 'placeholder': _('Drop location here')}),
             'full_name': forms.TextInput(attrs={'class': 'form-control', 'placeholder': _('Type your full name here')}),
             'email': forms.EmailInput(attrs={'class': 'form-control', 'placeholder': _('example@gmail.com')}),
-            'phone': forms.TextInput(attrs={'class': 'form-control', 'value': '+', 'maxlength': '15'}),
+            'phone': forms.TextInput(attrs={'class': 'form-control', 'maxlength': '15', 'placeholder': _('Enter your number here')}),
             'flight_number': forms.TextInput(attrs={'class': 'form-control', 'placeholder': _('Your flight number here')}),
         }
 
 
 # TourForm
 class TourFormModelForm(forms.ModelForm):
+    COUNTRY_CHOICES = [
+    ('+', '+'),         # Type your own
+    ('+994', '+994'),   # Azerbaijan
+    ('+1', '+1'),       # United States
+    ('+44', '+44'),     # United Kingdom
+    ('+90', '+90'),     # Turkey
+    ('+33', '+33'),     # France
+    ('+49', '+49'),     # Germany
+    ('+61', '+61'),     # Australia
+    ('+81', '+81'),     # Japan
+    ('+86', '+86'),     # China
+    ('+91', '+91'),     # India
+    ('+55', '+55'),     # Brazil
+    ('+7', '+7'),       # Russia
+    ('+34', '+34'),     # Spain
+    ('+39', '+39'),     # Italy
+    ('+52', '+52'),     # Mexico
+    ('+82', '+82'),     # South Korea
+    ('+27', '+27'),     # South Africa
+    ('+46', '+46'),     # Sweden
+    ('+31', '+31'),     # Netherlands
+    ('+45', '+45'),     # Denmark
+    ('+47', '+47'),     # Norway
+    ('+48', '+48'),     # Poland
+    ('+32', '+32'),     # Belgium
+    ('+420', '+420'),   # Czech Republic
+    ('+41', '+41'),     # Switzerland
+    ('+234', '+234'),   # Nigeria
+    ('+351', '+351'),   # Portugal
+    ('+66', '+66'),     # Thailand
+    ('+971', '+971'),   # United Arab Emirates
+    ('+92', '+92'),     # Pakistan
+    ('+63', '+63'),     # Philippines
+    ('+60', '+60'),     # Malaysia
+    ('+353', '+353'),   # Ireland
+    ('+62', '+62'),     # Indonesia
+    ('+64', '+64'),     # New Zealand
+    ('+998', '+998'),   # Uzbekistan
+]
+
+    country_code = forms.ChoiceField(
+        choices=COUNTRY_CHOICES, 
+        widget=forms.Select(attrs={'class': 'form-control', 'id': 'country-code'}),
+        initial='+994'
+    )
     phone_validator = RegexValidator(
         regex=r'^[\d\+\-\(\) ]+$',
         message=_("Phone number must contain only digits and symbols (+, -, (, ), space).")
@@ -111,14 +202,14 @@ class TourFormModelForm(forms.ModelForm):
     phone = forms.CharField(
         validators=[phone_validator],
         widget=forms.TextInput(
-            attrs={'class': 'form-control', 'value': '+', 'maxlength': '15'})
+            attrs={'class': 'form-control', 'maxlength': '15', 'placeholder': _('Enter your number here')})
     )
 
     class Meta:
         model = TourForm
         fields = [
             'select_city', 'planned_tour_days', 'travel_date', 'car_class',
-            'additional_request', 'full_name', 'email', 'phone'
+            'additional_request', 'full_name', 'email', 'country_code', 'phone'
         ]
         widgets = {
             'select_city': forms.SelectMultiple(attrs={'class': 'form-control',}),
@@ -128,5 +219,5 @@ class TourFormModelForm(forms.ModelForm):
             'additional_request': forms.Textarea(attrs={'class': 'form-control', 'rows': 3, 'placeholder': _('Any additional requests?')}),
             'full_name': forms.TextInput(attrs={'class': 'form-control', 'placeholder': _('Type your full name here')}),
             'email': forms.EmailInput(attrs={'class': 'form-control', 'placeholder': _('example@gmail.com')}),
-            'phone': forms.TextInput(attrs={'class': 'form-control', 'value': '+', 'maxlength': '15'}),
+            'phone': forms.TextInput(attrs={'class': 'form-control', 'maxlength': '15', 'placeholder': _('Enter your number here')}),
         }
