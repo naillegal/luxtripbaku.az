@@ -6,8 +6,14 @@ register = template.Library()
 @register.filter
 def country_flag(value):
     country_mapping = {
-        '+': '', # Type your own
-        '+994': 'az', # Azerbaijan
+        '+': '',  # Type your own
+        '+994': 'az',  # Azerbaijan
+        '+968': 'om',  # Oman
+        '+973': 'bh',  # Bahrain
+        '+965': 'kw',  # Kuwait
+        '+974': 'qa',  # Qatar
+        '+966': 'sa',  # Saudi Arabia
+        '+967': 'ye',  # Yemen
         '+1': 'us',  # United States
         '+44': 'gb',  # United Kingdom
         '+90': 'tr',  # Turkey

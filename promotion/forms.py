@@ -72,6 +72,12 @@ class FleetFormModelForm(forms.ModelForm):
     COUNTRY_CHOICES = [
     ('+', '+'),         # Type your own
     ('+994', '+994'),   # Azerbaijan
+    ('+968', '+968'),   # Oman
+    ('+973', '+973'),   # Bahrain
+    ('+965', '+965'),   # Kuwait
+    ('+974', '+974'),   # Qatar
+    ('+966', '+966'),   # Saudi Arabia
+    ('+967', '+967'),   # Yemen
     ('+1', '+1'),       # United States
     ('+44', '+44'),     # United Kingdom
     ('+90', '+90'),     # Turkey
@@ -152,6 +158,12 @@ class TourFormModelForm(forms.ModelForm):
     COUNTRY_CHOICES = [
     ('+', '+'),         # Type your own
     ('+994', '+994'),   # Azerbaijan
+    ('+968', '+968'),   # Oman
+    ('+973', '+973'),   # Bahrain
+    ('+965', '+965'),   # Kuwait
+    ('+974', '+974'),   # Qatar
+    ('+966', '+966'),   # Saudi Arabia
+    ('+967', '+967'),   # Yemen
     ('+1', '+1'),       # United States
     ('+44', '+44'),     # United Kingdom
     ('+90', '+90'),     # Turkey
