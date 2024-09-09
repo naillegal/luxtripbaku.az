@@ -165,6 +165,14 @@
       .form-group {
         margin-top: 20px;
         
+        .country_code_input{
+          margin: 5px 10px;
+          width: 15%;
+          @media (max-width: 991px) {
+            width: 50%;
+          }
+        }
+        
         .flag-icon{
           font-size: 30px;
           display: none;

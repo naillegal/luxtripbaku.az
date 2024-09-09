@@ -1356,6 +1356,15 @@ footer ul li a {
 #include-fleet-form .custom-container form .form-group {
   margin-top: 20px;
 }
+#include-fleet-form .custom-container form .form-group .country_code_input {
+  margin: 5px 10px;
+  width: 15%;
+}
+@media (max-width: 991px) {
+  #include-fleet-form .custom-container form .form-group .country_code_input {
+    width: 50%;
+  }
+}
 #include-fleet-form .custom-container form .form-group .flag-icon {
   font-size: 30px;
   display: none;
@@ -1649,6 +1658,15 @@ footer ul li a {
 }
 #include-tour-form .custom-container form .form-group {
   margin-top: 20px;
+}
+#include-tour-form .custom-container form .form-group .country_code_input {
+  margin: 5px 10px;
+  width: 15%;
+}
+@media (max-width: 991px) {
+  #include-tour-form .custom-container form .form-group .country_code_input {
+    width: 50%;
+  }
 }
 #include-tour-form .custom-container form .form-group .flag-icon {
   font-size: 30px;
