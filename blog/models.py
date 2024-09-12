@@ -36,7 +36,7 @@ class Tag(models.Model):
 
 class Blog(models.Model):
     title = models.TextField()
-    slug = models.SlugField(null=True, blank=True, max_length=100)
+    slug = models.SlugField(null=True, blank=True, max_length=100, unique=True)
     image = models.ImageField(upload_to='blogs/', null=False, blank=False, verbose_name='Blog Image')
     content = models.TextField()
     viewed = models.IntegerField(default=0, verbose_name='View Count')
@@ -54,7 +54,8 @@ class Blog(models.Model):
         return self.title
 
     def save(self, *args, **kwargs):
-        self.slug = get_slug(self.title)
+        if not self.slug:
+            self.slug = get_slug(self.title)
         return super().save(*args, **kwargs)
     
     @display(description='Link')
