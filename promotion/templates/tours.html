@@ -1,382 +1,422 @@
-{% extends "layout.html" %}
+{% extends 'layout.html' %}
 {% load country_tags %}
 {% load static %}
 {% load i18n %}
 {% block title %}
-  <title>{% trans "Transfers&Tours - Luxtripbaku a company experienced in organizing transfers and tours" %}</title>
-{% endblock title %}
+  <title>{% trans 'Transfers&Tours - Luxtripbaku a company experienced in organizing transfers and tours' %}</title>
+{% endblock %}
 {% block meta_tags %}
-<meta name="description" content="LUX TRIP BAKU offers reliable, professional drivers with prices 30% lower than market rates. Choose from our fleet, enjoy on-time service, and book unforgettable tours.">
-<meta property="og:title" content="Tours Page - Luxtripbaku a company experienced in organizing transfers and tours" />
-<meta property="og:description" content="LUX TRIP BAKU offers reliable, professional drivers with prices 30% lower than market rates. Choose from our fleet, enjoy on-time service, and book unforgettable tours." />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="{{request.build_absolute_uri}}" />
-<meta property="og:image" content="{% static "assets/logo.webp" %}" />
-{% endblock meta_tags %} 
+  <meta name="description" content="LUX TRIP BAKU offers reliable, professional drivers with prices 30% lower than market rates. Choose from our fleet, enjoy on-time service, and book unforgettable tours." />
+  <meta property="og:title" content="Tours Page - Luxtripbaku a company experienced in organizing transfers and tours" />
+  <meta property="og:description" content="LUX TRIP BAKU offers reliable, professional drivers with prices 30% lower than market rates. Choose from our fleet, enjoy on-time service, and book unforgettable tours." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="{{ request.build_absolute_uri }}" />
+  <meta property="og:image" content="{% static 'assets/logo.webp' %}" />
+{% endblock %}
 {% block main %}
-
-    <main>
-      <section id="tours-upper">
-        <img src="{% static "assets/tourmain.jpg" %}" alt="" />
-        <div class="content">
-          <h1>{% trans "Private Transfers&Tours" %}</h1>
-          <h5>{% trans "All photos are real" %}</h5>
+  <main>
+    <section id="tours-upper">
+      <img src="{% static 'assets/tourmain.jpg' %}" alt="" />
+      <div class="content">
+        <h1>{% trans 'Private Transfers&Tours' %}</h1>
+        <h5>{% trans 'All photos are real' %}</h5>
+      </div>
+    </section>
+    <section id="tours-info">
+      <div class="container">
+        <div class="info-upper d-flex justify-content-between">
+          <div class="info-upper-content">
+            <h4>{% trans 'Private transfers to the sights and attractions of Azerbaijan.' %}</h4>
+            <p>
+              {% trans 'We are confident that, with our many years of experience, we' %}
+              {% trans 'will offer you unforgettable journeys. We kindly ask you to' %}
+              {% trans 'contact us and take advantage of our free consultation. You can' %}
+              {% trans 'select the places you wish to visit in the city or region of' %}
+              {% trans 'your choice and inform us. Additionally, we can suggest' %}
+              {% trans 'locations that match your preferences.' %}
+            </p>
+          </div>
+          <div class="filter">
+            <form method="get" action="{% url 'promotion:tours' %}">
+              <label for="city-filter">{% trans 'Select city:' %}</label>
+              {{ form.city }}
+              <button type="submit">{% trans 'Submit' %}</button>
+            </form>
+          </div>
         </div>
-      </section>
-      <section id="tours-info">
-        <div class="container">
-          <div class="info-upper d-flex justify-content-between">
-            <div class="info-upper-content">
-              <h4>
-                {% trans "Private transfers to the sights and attractions of Azerbaijan." %}
-              </h4>
-              <p>
-                {% trans "We are confident that, with our many years of experience, we" %}
-                {% trans "will offer you unforgettable journeys. We kindly ask you to" %}
-                {% trans "contact us and take advantage of our free consultation. You can" %}
-                {% trans "select the places you wish to visit in the city or region of" %}
-                {% trans "your choice and inform us. Additionally, we can suggest" %}
-                {% trans "locations that match your preferences." %}
-              </p>
-            </div>
-            <div class="filter">
-              <form method="get" action="{% url 'promotion:tours' %}">
-                  <label for="city-filter">{% trans "Select city:" %}</label>
-                  {{ form.city }}
-                  <button type="submit">{% trans "Submit" %}</button>
-              </form>
-          </div>
-          </div>
-          </div>
-          <div class="container tourbytour">
-            <div class="row row-gap-5">
-                {% for tour in tours %}
-                <div class="col-lg-4 col-md-6 col-sm-12">
-                    <div class="swiper mySwiper">
-                        <div class="swiper-wrapper">
-                            {% for image in tour.images.all %}
-                            <div class="swiper-slide">
-                                <div class="box">
-                                    <div class="image-slider">
-                                        <img src="{{ image.image.url }}" alt="{{ image.caption }}" />
-                                    </div>
-                                    <div class="content">
-                                        <div class="tour-name">{{ tour.title }}</div>
-                                        <p class="tour-info">{{ image.caption }}</p>
-                                    </div>
-                                </div>
-                            </div>
-                            {% endfor %}
+      </div>
+      <div class="container tourbytour">
+        <div class="row row-gap-5">
+          {% for tour in tours %}
+            <div class="col-lg-4 col-md-6 col-sm-12">
+              <div class="swiper mySwiper">
+                <div class="swiper-wrapper">
+                  {% for image in tour.images.all %}
+                    <div class="swiper-slide">
+                      <div class="box">
+                        <div class="image-slider">
+                          <img src="{{ image.image.url }}" alt="{{ image.caption }}" />
                         </div>
-                        <div class="swiper-button-next"></div>
-                        <div class="swiper-button-prev"></div>
-                        <div class="swiper-pagination"></div>
+                        <div class="content">
+                          <div class="tour-name">{{ tour.title }}</div>
+                          <p class="tour-info">{{ image.caption }}</p>
+                        </div>
+                      </div>
                     </div>
+                  {% endfor %}
                 </div>
-                {% endfor %}
-            </div>
-        </div>
-        
-      </section>
-      <section id="include-tour-form">
-        <div class="custom-container">
-          <h2 class="text-center">{% trans "Tour booking" %}</h2>
-          <h2 class="text-center hide">{% trans "Transfer booking" %}</h2>
-          <div class="categories d-flex">
-            <div class="category category1">{% trans "Transfer booking" %}</div>
-            <div class="category category2 active-category">{% trans "Tour booking" %}</div>
-          </div>
-          <form class="tour-fleet-form" action="{% url 'promotion:submit_fleet_form' %}" method="post">
-            {% csrf_token %}
-            {% if messages %}
-          {% for message in messages %}
-            <div class="alert {% if 'success' in message.tags %}alert-success{% elif 'error' in message.tags %}alert-danger{% endif %} mt-3">
-             {{ message }}
-             {% if fleetform.errors %}
-            <div class="alert alert-danger mt-3">
-                <ul>
-                    {% for field, errors in fleetform.errors.items %}
-                        {% for error in errors %}
-                            <li>{{ error }}</li>
-                                  {% endfor %}
-                    {% endfor %}
-                </ul>
-            </div>
-            {% endif %}
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-pagination"></div>
+              </div>
             </div>
           {% endfor %}
-          {% endif %}
-            
-            <h6>
-            {% trans "Please provide the transfer details below." %} 
-            {% trans "We will get back to you shortly with the most " %}
-            {% trans "suitable price offers!" %}
-            </h6>
-        
-            <!-- Pickup Location -->
-            <div class="form-group">
-                <div class="d-flex">
-                    <label for="{{ fleetform.pickup_location.id_for_label }}">{% trans "Pickup Location*" %}</label>
-                    <i class="fa-solid fa-map-location-dot"></i>
-                </div>
-                {{ fleetform.pickup_location }}
-            </div>
-        
-            <!-- Dropoff Location -->
-            <div class="form-group">
-                <div class="d-flex">
-                    <label for="{{ fleetform.dropoff_location.id_for_label }}">{% trans "Drop-off location*" %}</label>
-                    <i class="fa-solid fa-location-crosshairs"></i>
-                </div>
-                {{ fleetform.dropoff_location }}
-            </div>
-        
-            <!-- Date and Time of Service -->
-                <div class="form-group">
-                    <div class="d-flex">
-                        <label for="{{ fleetform.date_of_service.id_for_label }}">{% trans "Date of service*" %}</label>
-                        <i class="fa-regular fa-calendar-days"></i>
-                    </div>
-                    {{ fleetform.date_of_service }}
-                </div>
-                <div class="form-group custom-gap">
-                    <div class="d-flex">
-                        <label for="{{ fleetform.time_of_service.id_for_label }}">{% trans "Time of service*" %}</label>
-                        <i class="fa-solid fa-clock"></i>
-                    </div>
-                    {{ fleetform.time_of_service }}
-                </div>
-        
-            <!-- Car Class -->
-                <div class="form-group">
-                  <div class="d-flex">
-                      <label for="{{ fleetform.car_class.id_for_label }}">{% trans "Car class*" %}</label>
-                      <i class="fa-solid fa-car-side"></i>
-                  </div>
-                  <div class="custom-select">
-                      <div class="selected-option" data-value="">
-                          Select a Car Class
-                      </div>
-                      <ul class="options">
-                          {% for value, label in fleetform.car_class.field.choices %}
-                              <li data-value="{{ value }}">
-                                  {{ label }}
-                                {% if value != 'any' %}
-                                    <img src="{% static 'assets/'|add:value|add:'.png' %}" alt="{{ label }} Icon" />
-                                {% endif %}
-                              </li>
-                          {% endfor %}
-                      </ul>
-                      <!-- Hidden select element -->
-                       <div class="d-none">
-                         {{ fleetform.car_class }}
-                       </div>
-                  </div>
-                </div>
-
-        
-            <!-- Flight Number -->
-            <div class="form-group">
-                <div class="d-flex">
-                    <label for="{{ fleetform.flight_number.id_for_label }}">{% trans "Flight number" %}</label>
-                    <i class="fa-solid fa-plane-arrival"></i>
-                </div>
-                {{ fleetform.flight_number }}
-            </div>
-        
-            <!-- Additional Request -->
-            <div class="form-group">
-                <div class="d-flex">
-                    <label for="{{ fleetform.additional_request.id_for_label }}">{% trans "Additional request" %}</label>
-                    <i class="fa-solid fa-bell-concierge"></i>
-                </div>
-                {{ fleetform.additional_request }}
-            </div>
-        
-            <!-- Full Name -->
-            <div class="form-group">
-                <div class="d-flex">
-                    <label for="{{ fleetform.full_name.id_for_label }}">{% trans "Full name*" %}</label>
-                    <i class="fa-solid fa-marker"></i>
-                </div>
-                {{ fleetform.full_name }}
-            </div>
-        
-            <!-- Email -->
-            <div class="form-group">
-                <div class="d-flex">
-                    <label for="{{ fleetform.email.id_for_label }}">{% trans "Email*" %}</label>
-                    <i class="fa-solid fa-envelope"></i>
-                </div>
-                {{ fleetform.email }}
-            </div>
-        
-            <!-- Phone -->
-            <div class="form-group">
-                <label for="{{ fleetform.phone.id_for_label }}">{% trans "Cell Phone*" %}</label>
-                <div class="d-flex">
-                    {% with fleetform.country_code.value as selected_code %}
-                        {% if not selected_code %}
-                            {% with fleetform.country_code.field.choices.0.0 as default_code %}
-                                {% for code, name in fleetform.country_code.field.choices %}
-                                    <i class="flag-icon flag-icon-{{ code|country_flag }}{% if default_code == code %} active{% endif %}" data-code="{{ code }}"></i>
-                                {% endfor %}
-                            {% endwith %}
-                        {% else %}
-                            {% for code, name in fleetform.country_code.field.choices %}
-                                <i class="flag-icon flag-icon-{{ code|country_flag }}{% if selected_code == code %} active{% endif %}" data-code="{{ code }}"></i>
-                            {% endfor %}
-                        {% endif %}
-                    {% endwith %}
-            
-                    <div class="country_code_input">
-                        {{ fleetform.country_code }}
-                    </div>
-                      {{ fleetform.phone }}
-                </div>
-            </div>
-        
-            <button class="btn btn-success" type="submit" name="fleet_submit" value="submit">{% trans "Submit" %}</button>
-        </form>
-        <form class="tour-transfers-form" action="{% url 'promotion:submit_tour_form' %}" method="post">
+        </div>
+      </div>
+    </section>
+    <section id="include-tour-form">
+      <div class="custom-container">
+        <h2 class="text-center">{% trans 'Tour booking' %}</h2>
+        <h2 class="text-center hide">{% trans 'Transfer booking' %}</h2>
+        <div class="categories d-flex">
+          <div class="category category1">
+            {% trans 'Transfer booking' %}
+          </div>
+          <div class="category category2 active-category">
+            {% trans 'Tour booking' %}
+          </div>
+        </div>
+        <form class="tour-fleet-form" id="tourFleetForm" action="{% url 'promotion:submit_fleet_form' %}" method="post">
           {% csrf_token %}
           {% if messages %}
-          {% for message in messages %}
-            <div class="alert {% if 'success' in message.tags %}alert-success{% elif 'error' in message.tags %}alert-danger{% endif %} mt-3">
-             {{ message }}
-             {% if tourform.errors %}
-            <div class="alert alert-danger mt-3">
-                <ul>
-                    {% for field, errors in tourform.errors.items %}
+            {% for message in messages %}
+              <div class="alert {% if 'success' in message.tags %}
+                  
+                  
+                  alert-success
+
+
+                {% elif 'error' in message.tags %}
+                  
+                  
+                  alert-danger
+
+
+                {% endif %} mt-3">
+                {{ message }}
+                {% if 'success' in message.tags %}
+                  <i class="fa-solid fa-envelope-circle-check" style="margin-left: 8px;"></i>
+                  <script>
+                    // Müvəffəqiyyətli mesaj varsa, form sahələrini gizlət
+                    document.addEventListener('DOMContentLoaded', function () {
+                      document.getElementById('tourFleetFormContent').style.display = 'none'
+                    })
+                  </script>
+                {% endif %}
+                {% if fleetform.errors %}
+                  <div class="alert alert-danger mt-3">
+                    <ul>
+                      {% for field, errors in fleetform.errors.items %}
                         {% for error in errors %}
-                            <li>{{ error }}</li>
-                                  {% endfor %}
-                    {% endfor %}
-                </ul>
-            </div>
-            {% endif %}
-            </div>
-          {% endfor %}
-          {% endif %}
-      
-          <h6>
-            {% trans "Please list your preferences below. We will get back" %}
-            {% trans "to you as soon as possible with the best offers" %} 
-            {% trans "that match your requests!" %}
-          </h6>
-      
-          <!-- Select City -->
-          <div class="form-group">
-              <div class="d-flex">
-                  <label for="{{ tourform.select_city.id_for_label }}">{% trans "Select the cities or districts you wish to tour*" %}</label>
-                  <i class="fa-solid fa-city"></i>
-              </div>
-              {{ tourform.select_city }}
-          </div>
-      
-          <!-- Planned Tour Days -->
-          <div class="form-group">
-              <div class="d-flex">
-                  <label for="{{ tourform.planned_tour_days.id_for_label }}">{% trans "Planned tour days*" %}</label>
-                  <i class="fa-solid fa-calendar"></i>
-              </div>
-              {{ tourform.planned_tour_days }}
-          </div>
-      
-          <!-- Travel Date -->
-          <div class="dateandtime">
-              <div class="form-group">
-                  <div class="d-flex">
-                      <label for="{{ tourform.travel_date.id_for_label }}">{% trans "Travel date*" %}</label>
-                      <i class="fa-regular fa-calendar-days"></i>
+                          <li>{{ error }}</li>
+                        {% endfor %}
+                      {% endfor %}
+                    </ul>
                   </div>
-                  {{ tourform.travel_date }}
+                {% endif %}
               </div>
-          </div>
-      
-          <!-- Car Class -->
-          <div class="form-group">
+            {% endfor %}
+          {% endif %}
+          <div id="tourFleetFormContent">
+            <h6>
+              {% trans 'Please provide the transfer details below.' %}
+              {% trans 'We will get back to you shortly with the most ' %}
+              {% trans 'suitable price offers!' %}
+            </h6>
+
+            <!-- Pickup Location -->
+            <div class="form-group">
               <div class="d-flex">
-                  <label for="{{ tourform.car_class.id_for_label }}">{% trans "Car class" %}</label>
-                  <i class="fa-solid fa-car-side"></i>
+                <label for="{{ fleetform.pickup_location.id_for_label }}">{% trans 'Pickup Location*' %}</label>
+                <i class="fa-solid fa-map-location-dot"></i>
+              </div>
+              {{ fleetform.pickup_location }}
+            </div>
+
+            <!-- Dropoff Location -->
+            <div class="form-group">
+              <div class="d-flex">
+                <label for="{{ fleetform.dropoff_location.id_for_label }}">{% trans 'Drop-off location*' %}</label>
+                <i class="fa-solid fa-location-crosshairs"></i>
+              </div>
+              {{ fleetform.dropoff_location }}
+            </div>
+
+            <!-- Date and Time of Service -->
+            <div class="form-group">
+              <div class="d-flex">
+                <label for="{{ fleetform.date_of_service.id_for_label }}">{% trans 'Date of service*' %}</label>
+                <i class="fa-regular fa-calendar-days"></i>
+              </div>
+              {{ fleetform.date_of_service }}
+            </div>
+            <div class="form-group custom-gap">
+              <div class="d-flex">
+                <label for="{{ fleetform.time_of_service.id_for_label }}">{% trans 'Time of service*' %}</label>
+                <i class="fa-solid fa-clock"></i>
+              </div>
+              {{ fleetform.time_of_service }}
+            </div>
+
+            <!-- Car Class -->
+            <div class="form-group">
+              <div class="d-flex">
+                <label for="{{ fleetform.car_class.id_for_label }}">{% trans 'Car class*' %}</label>
+                <i class="fa-solid fa-car-side"></i>
               </div>
               <div class="custom-select">
-                  <div class="selected-option" data-value="">
-                      Select a Car Class
-                  </div>
-                  <ul class="options">
-                      {% for value, label in tourform.car_class.field.choices %}
-                          <li data-value="{{ value }}">
-                              {{ label }}
-                              {% if value != 'any' %}
-                                <img src="{% static 'assets/'|add:value|add:'.png' %}" alt="{{ label }} Icon" />
-                              {% endif %}
-                          </li>
-                      {% endfor %}
-                  </ul>
-                  <!-- Hidden select element -->
-                  <div class="d-none">
-                      {{ tourform.car_class }}
-                  </div>
+                <div class="selected-option" data-value="">Select a Car Class</div>
+                <ul class="options">
+                  {% for value, label in fleetform.car_class.field.choices %}
+                    <li data-value="{{ value }}">
+                      {{ label }}
+                      {% if value != 'any' %}
+                        <img src="{% static 'assets/'|add:value|add:'.png' %}" alt="{{ label }} Icon" />
+                      {% endif %}
+                    </li>
+                  {% endfor %}
+                </ul>
+                <!-- Hidden select element -->
+                <div class="d-none">{{ fleetform.car_class }}</div>
               </div>
-          </div>
-      
-          <!-- Additional Request -->
-          <div class="form-group">
+            </div>
+
+            <!-- Flight Number -->
+            <div class="form-group">
               <div class="d-flex">
-                  <label for="{{ tourform.additional_request.id_for_label }}">{% trans "Additional request" %}</label>
-                  <i class="fa-solid fa-bell-concierge"></i>
+                <label for="{{ fleetform.flight_number.id_for_label }}">{% trans 'Flight number' %}</label>
+                <i class="fa-solid fa-plane-arrival"></i>
+              </div>
+              {{ fleetform.flight_number }}
+            </div>
+
+            <!-- Guests Number -->
+            <div class="form-group">
+              <div class="d-flex">
+                <label for="{{ fleetform.guest_number.id_for_label }}">{% trans 'The number of guests' %}</label>
+                <i class="fa-solid fa-users-line"></i>
+              </div>
+              {{ fleetform.guest_number }}
+            </div>
+
+            <!-- Additional Request -->
+            <div class="form-group">
+              <div class="d-flex">
+                <label for="{{ fleetform.additional_request.id_for_label }}">{% trans 'Additional request' %}</label>
+                <i class="fa-solid fa-bell-concierge"></i>
+              </div>
+              {{ fleetform.additional_request }}
+            </div>
+
+            <!-- Full Name -->
+            <div class="form-group">
+              <div class="d-flex">
+                <label for="{{ fleetform.full_name.id_for_label }}">{% trans 'Full name*' %}</label>
+                <i class="fa-solid fa-marker"></i>
+              </div>
+              {{ fleetform.full_name }}
+            </div>
+
+            <!-- Email -->
+            <div class="form-group">
+              <div class="d-flex">
+                <label for="{{ fleetform.email.id_for_label }}">{% trans 'Email*' %}</label>
+                <i class="fa-solid fa-envelope"></i>
+              </div>
+              {{ fleetform.email }}
+            </div>
+
+            <!-- Phone -->
+            <div class="form-group">
+              <label for="{{ fleetform.phone.id_for_label }}">{% trans 'Cell Phone*' %}</label>
+              <div class="d-flex">
+                {% with selected_code=fleetform.country_code.value %}
+                  {% if not selected_code %}
+                    {% with default_code=fleetform.country_code.field.choices.0 %}
+                      {% for code, name in fleetform.country_code.field.choices %}
+                        <i class="flag-icon flag-icon-{{ code|country_flag }}{% if default_code == code %} active{% endif %}" data-code="{{ code }}"></i>
+                      {% endfor %}
+                    {% endwith %}
+                  {% else %}
+                    {% for code, name in fleetform.country_code.field.choices %}
+                      <i class="flag-icon flag-icon-{{ code|country_flag }}{% if selected_code == code %} active{% endif %}" data-code="{{ code }}"></i>
+                    {% endfor %}
+                  {% endif %}
+                {% endwith %}
+
+                <div class="country_code_input">{{ fleetform.country_code }}</div>
+                {{ fleetform.phone }}
+              </div>
+            </div>
+
+            <button class="btn btn-success" type="submit" name="fleet_submit" value="submit">{% trans 'Submit' %}</button>
+          </div>
+        </form>
+        <form class="tour-transfers-form" id="tourTransfersForm" action="{% url 'promotion:submit_tour_form' %}" method="post">
+          {% csrf_token %}
+          {% if messages %}
+            {% for message in messages %}
+              <div class="alert {% if 'success' in message.tags %}
+                  alert-success
+                {% elif 'error' in message.tags %}
+                  alert-danger
+                {% endif %} mt-3">
+                {{ message }}
+                {% if 'success' in message.tags %}
+                  <i class="fa-solid fa-envelope-circle-check" style="margin-left: 8px;"></i>
+                  <script>
+                    // Müvəffəqiyyətli mesaj varsa, form sahələrini gizlət
+                    document.addEventListener('DOMContentLoaded', function () {
+                      document.getElementById('tourTransfersFormContent').style.display = 'none'
+                    })
+                  </script>
+                {% endif %}
+                {% if tourform.errors %}
+                  <div class="alert alert-danger mt-3">
+                    <ul>
+                      {% for field, errors in tourform.errors.items %}
+                        {% for error in errors %}
+                          <li>{{ error }}</li>
+                        {% endfor %}
+                      {% endfor %}
+                    </ul>
+                  </div>
+                {% endif %}
+              </div>
+            {% endfor %}
+          {% endif %}
+          <div id="tourTransfersFormContent">
+            <h6>
+              {% trans 'Please list your preferences below. We will get back' %}
+              {% trans 'to you as soon as possible with the best offers' %}
+              {% trans 'that match your requests!' %}
+            </h6>
+
+            <!-- Select City -->
+            <div class="form-group">
+              <div class="d-flex">
+                <label for="{{ tourform.select_city.id_for_label }}">{% trans 'Select the cities or districts you wish to tour*' %}</label>
+                <i class="fa-solid fa-city"></i>
+              </div>
+              {{ tourform.select_city }}
+            </div>
+
+            <!-- Planned Tour Days -->
+            <div class="form-group">
+              <div class="d-flex">
+                <label for="{{ tourform.planned_tour_days.id_for_label }}">{% trans 'Planned tour days*' %}</label>
+                <i class="fa-solid fa-calendar"></i>
+              </div>
+              {{ tourform.planned_tour_days }}
+            </div>
+
+            <!-- Travel Date -->
+            <div class="dateandtime">
+              <div class="form-group">
+                <div class="d-flex">
+                  <label for="{{ tourform.travel_date.id_for_label }}">{% trans 'Travel date*' %}</label>
+                  <i class="fa-regular fa-calendar-days"></i>
+                </div>
+                {{ tourform.travel_date }}
+              </div>
+            </div>
+
+            <!-- Car Class -->
+            <div class="form-group">
+              <div class="d-flex">
+                <label for="{{ tourform.car_class.id_for_label }}">{% trans 'Car class' %}</label>
+                <i class="fa-solid fa-car-side"></i>
+              </div>
+              <div class="custom-select">
+                <div class="selected-option" data-value="">Select a Car Class</div>
+                <ul class="options">
+                  {% for value, label in tourform.car_class.field.choices %}
+                    <li data-value="{{ value }}">
+                      {{ label }}
+                      {% if value != 'any' %}
+                        <img src="{% static 'assets/'|add:value|add:'.png' %}" alt="{{ label }} Icon" />
+                      {% endif %}
+                    </li>
+                  {% endfor %}
+                </ul>
+                <!-- Hidden select element -->
+                <div class="d-none">{{ tourform.car_class }}</div>
+              </div>
+            </div>
+
+            <!-- Guests Number -->
+            <div class="form-group">
+              <div class="d-flex">
+                <label for="{{ fleetform.guest_number.id_for_label }}">{% trans 'The number of guests' %}</label>
+                <i class="fa-solid fa-users-line"></i>
+              </div>
+              {{ fleetform.guest_number }}
+            </div>
+
+            <!-- Additional Request -->
+            <div class="form-group">
+              <div class="d-flex">
+                <label for="{{ tourform.additional_request.id_for_label }}">{% trans 'Additional request' %}</label>
+                <i class="fa-solid fa-bell-concierge"></i>
               </div>
               {{ tourform.additional_request }}
-          </div>
-      
-          <!-- Full Name -->
-          <div class="form-group">
+            </div>
+
+            <!-- Full Name -->
+            <div class="form-group">
               <div class="d-flex">
-                  <label for="{{ tourform.full_name.id_for_label }}">{% trans "Full name*" %}</label>
-                  <i class="fa-solid fa-marker"></i>
+                <label for="{{ tourform.full_name.id_for_label }}">{% trans 'Full name*' %}</label>
+                <i class="fa-solid fa-marker"></i>
               </div>
               {{ tourform.full_name }}
-          </div>
-      
-          <!-- Email -->
-          <div class="form-group">
+            </div>
+
+            <!-- Email -->
+            <div class="form-group">
               <div class="d-flex">
-                  <label for="{{ tourform.email.id_for_label }}">{% trans "Email*" %}</label>
-                  <i class="fa-solid fa-envelope"></i>
+                <label for="{{ tourform.email.id_for_label }}">{% trans 'Email*' %}</label>
+                <i class="fa-solid fa-envelope"></i>
               </div>
               {{ tourform.email }}
-          </div>
-      
-          <!-- Phone -->
-          <div class="form-group">
-            <label for="{{ tourform.phone.id_for_label }}">{% trans "Cell Phone*" %}</label>
-            <div class="d-flex">
-              {% with tourform.country_code.value as selected_code %}
-              {% if not selected_code %}
-                  {% with tourform.country_code.field.choices.0.0 as default_code %}
-                      {% for code, name in tourform.country_code.field.choices %}
-                          <i class="flag-icon flag-icon-{{ code|country_flag }}{% if default_code == code %} active{% endif %}" data-code="{{ code }}"></i>
-                      {% endfor %}
-                  {% endwith %}
-              {% else %}
-                  {% for code, name in tourform.country_code.field.choices %}
-                      <i class="flag-icon flag-icon-{{ code|country_flag }}{% if selected_code == code %} active{% endif %}" data-code="{{ code }}"></i>
-                  {% endfor %}
-                {% endif %}
-              {% endwith %}
-                
-                <div class="country_code_input">
-                    {{ tourform.country_code }}
-                </div>
-                {{ tourform.phone }}
             </div>
-        </div>
-      
-          <button class="btn btn-success" type="submit" name="tour_submit" value="submit">{% trans "Submit" %}</button>
-        </form>
-        </div>
-      </section>
-    </main>
 
-    {% endblock main %}
+            <!-- Phone -->
+            <div class="form-group">
+              <label for="{{ tourform.phone.id_for_label }}">{% trans 'Cell Phone*' %}</label>
+              <div class="d-flex">
+                {% with selected_code=tourform.country_code.value %}
+                  {% if not selected_code %}
+                    {% with default_code=tourform.country_code.field.choices.0 %}
+                      {% for code, name in tourform.country_code.field.choices %}
+                        <i class="flag-icon flag-icon-{{ code|country_flag }}{% if default_code == code %} active{% endif %}" data-code="{{ code }}"></i>
+                      {% endfor %}
+                    {% endwith %}
+                  {% else %}
+                    {% for code, name in tourform.country_code.field.choices %}
+                      <i class="flag-icon flag-icon-{{ code|country_flag }}{% if selected_code == code %} active{% endif %}" data-code="{{ code }}"></i>
+                    {% endfor %}
+                  {% endif %}
+                {% endwith %}
+
+                <div class="country_code_input">{{ tourform.country_code }}</div>
+                {{ tourform.phone }}
+              </div>
+            </div>
+
+            <button class="btn btn-success" type="submit" name="tour_submit" value="submit">{% trans 'Submit' %}</button>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+{% endblock %}

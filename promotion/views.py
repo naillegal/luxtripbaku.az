@@ -4,6 +4,7 @@ from .forms import CityFilterForm, ContactRequestForm, UpdatesRequestForm, Fleet
 from django.contrib import messages
 from django.core.mail import send_mail
 from django.conf import settings
+from django.utils.translation import gettext_lazy as _
 # Create your views here.
 
 
@@ -17,20 +18,20 @@ def home(request):
     if 'fleet_submit' in request.GET:
         if request.GET.get('fleet_submit') == 'success':
             messages.success(
-                request, 'Your request has been sent! Thank you for choosing us!')
+                request, _('Thank you! We have received your request and will get back to you shortly.'))
         elif request.GET.get('fleet_submit') == 'error':
             messages.error(
-                request, 'Fleet form submission failed. Please correct the errors.')
+                request, _('Fleet form submission failed. Please correct the errors.'))
 
         fleetform = FleetFormModelForm(prefix='fleet_')
 
     if 'tour_submit' in request.GET:
         if request.GET.get('tour_submit') == 'success':
             messages.success(
-                request, 'Your tour request has been sent! Thank you for choosing us!')
+                request,  _('Thank you! We have received your request and will get back to you shortly.'))
         elif request.GET.get('tour_submit') == 'error':
             messages.error(
-                request, 'Tour form submission failed. Please correct the errors.')
+                request, _('Tour form submission failed. Please correct the errors.'))
 
         tourform = TourFormModelForm(prefix='tour_')
 
@@ -81,11 +82,11 @@ def submit_tour_form(request):
                 fail_silently=False,
             )
             messages.success(
-                request, 'Your tour request has been sent! Thank you for choosing us!')
+                request,  _('Thank you! We have received your request and will get back to you shortly.'))
             return redirect('/')
         else:
             messages.error(
-                request, 'Tour form submission failed. Please correct the errors.')
+                request, _('Tour form submission failed. Please correct the errors.'))
             return render(request, 'index.html', {
                 'fleetform': FleetFormModelForm(prefix='fleet_'),
                 'tourform': tourform,
@@ -115,20 +116,20 @@ def tours(request):
     if 'fleet_submit' in request.GET:
         if request.GET.get('fleet_submit') == 'success':
             messages.success(
-                request, 'Your request has been sent! Thank you for choosing us!')
+                request, _('Thank you! We have received your request and will get back to you shortly.'))
         elif request.GET.get('fleet_submit') == 'error':
             messages.error(
-                request, 'Fleet form submission failed. Please correct the errors.')
+                request, _('Fleet form submission failed. Please correct the errors.'))
 
         fleetform = FleetFormModelForm(prefix='fleet_')
 
     if 'tour_submit' in request.GET:
         if request.GET.get('tour_submit') == 'success':
             messages.success(
-                request, 'Your tour request has been sent! Thank you for choosing us!')
+                request,  _('Thank you! We have received your request and will get back to you shortly.'))
         elif request.GET.get('tour_submit') == 'error':
             messages.error(
-                request, 'Tour form submission failed. Please correct the errors.')
+                request, _('Tour form submission failed. Please correct the errors.'))
 
         tourform = TourFormModelForm(prefix='tour_')
 
@@ -154,20 +155,20 @@ def fleet(request):
     if 'fleet_submit' in request.GET:
         if request.GET.get('fleet_submit') == 'success':
             messages.success(
-                request, 'Your request has been sent! Thank you for choosing us!')
+                request, _('Thank you! We have received your request and will get back to you shortly.'))
         elif request.GET.get('fleet_submit') == 'error':
             messages.error(
-                request, 'Fleet form submission failed. Please correct the errors.')
+                request, _('Fleet form submission failed. Please correct the errors.'))
 
         fleetform = FleetFormModelForm(prefix='fleet_')
 
     if 'tour_submit' in request.GET:
         if request.GET.get('tour_submit') == 'success':
             messages.success(
-                request, 'Your tour request has been sent! Thank you for choosing us!')
+                request,  _('Thank you! We have received your request and will get back to you shortly.'))
         elif request.GET.get('tour_submit') == 'error':
             messages.error(
-                request, 'Tour form submission failed. Please correct the errors.')
+                request, _('Tour form submission failed. Please correct the errors.'))
 
         tourform = TourFormModelForm(prefix='tour_')
 

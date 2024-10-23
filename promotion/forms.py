@@ -136,12 +136,13 @@ class FleetFormModelForm(forms.ModelForm):
         model = FleetForm
         fields = [
             'pickup_location', 'dropoff_location', 'date_of_service',
-            'time_of_service', 'car_class', 'flight_number',
+            'time_of_service', 'car_class', 'flight_number', 'guest_number',
             'additional_request', 'full_name', 'email', 'country_code', 'phone'
         ]
         widgets = {
             'date_of_service': forms.DateInput(attrs={'class': 'form-control', 'type': 'date'}),
             'time_of_service': forms.TimeInput(attrs={'class': 'form-control', 'type': 'time'}),
+            'guest_number': forms.TextInput(attrs={'class': 'form-control', 'placeholder': _('Your guests number here')}),
             'additional_request': forms.Textarea(attrs={'class': 'form-control', 'rows': 3, 'placeholder': _('Any additional requests?')}),
             'pickup_location': forms.Select(attrs={'class': 'form-control'}),
             'car_class': forms.Select(attrs={'class': 'form-control'}),
@@ -220,7 +221,7 @@ class TourFormModelForm(forms.ModelForm):
     class Meta:
         model = TourForm
         fields = [
-            'select_city', 'planned_tour_days', 'travel_date', 'car_class',
+            'select_city', 'planned_tour_days', 'travel_date', 'car_class', 'guest_number',
             'additional_request', 'full_name', 'email', 'country_code', 'phone'
         ]
         widgets = {
@@ -228,6 +229,7 @@ class TourFormModelForm(forms.ModelForm):
             'planned_tour_days': forms.NumberInput(attrs={'class': 'form-control', 'placeholder': _('Number of planned tour days')}),
             'travel_date': forms.DateInput(attrs={'class': 'form-control', 'type': 'date'}),
             'car_class': forms.Select(attrs={'class': 'form-control'}),
+            'guest_number': forms.TextInput(attrs={'class': 'form-control', 'placeholder': _('Your guests number here')}),
             'additional_request': forms.Textarea(attrs={'class': 'form-control', 'rows': 3, 'placeholder': _('Any additional requests?')}),
             'full_name': forms.TextInput(attrs={'class': 'form-control', 'placeholder': _('Type your full name here')}),
             'email': forms.EmailInput(attrs={'class': 'form-control', 'placeholder': _('example@gmail.com')}),
