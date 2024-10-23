@@ -56,11 +56,11 @@ def submit_fleet_form(request):
                 fail_silently=False,
             )
             messages.success(
-                request, 'Your transfer request has been sent! Thank you for choosing us!')
+                request, _('Thank you! We have received your request and will get back to you shortly.'))
             return redirect('/')
         else:
             messages.error(
-                request, 'Transfer form submission failed. Please correct the errors.')
+                request, _('Fleet form submission failed. Please correct the errors.'))
             return render(request, 'index.html', {
                 'fleetform': fleetform,
                 'tourform': TourFormModelForm(prefix='tour_'),

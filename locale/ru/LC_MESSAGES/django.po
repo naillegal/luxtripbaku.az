@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-10-23 23:11+0400\n"
+"POT-Creation-Date: 2024-10-23 23:32+0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -96,10 +96,8 @@ msgid "Enter your number here"
 msgstr "Введите свой номер здесь"
 
 #: .\promotion\forms.py:145 .\promotion\forms.py:232
-#, fuzzy
-#| msgid "Your flight number here"
 msgid "Your guests number here"
-msgstr "Номер вашего рейса здесь"
+msgstr "Номер количество гостей здесь"
 
 #: .\promotion\forms.py:146 .\promotion\forms.py:233
 msgid "Any additional requests?"
@@ -531,14 +529,15 @@ msgstr "места, которые соответствуют вашим пре�
 msgid "Select city:"
 msgstr "Выберите город"
 
-#: .\promotion\views.py:21 .\promotion\views.py:31 .\promotion\views.py:85
-#: .\promotion\views.py:119 .\promotion\views.py:129 .\promotion\views.py:158
-#: .\promotion\views.py:168
+#: .\promotion\views.py:21 .\promotion\views.py:31 .\promotion\views.py:59
+#: .\promotion\views.py:85 .\promotion\views.py:119 .\promotion\views.py:129
+#: .\promotion\views.py:158 .\promotion\views.py:168
 msgid ""
 "Thank you! We have received your request and will get back to you shortly."
 msgstr "Спасибо! Мы получили ваш запрос и скоро свяжемся с вами."
 
-#: .\promotion\views.py:24 .\promotion\views.py:122 .\promotion\views.py:161
+#: .\promotion\views.py:24 .\promotion\views.py:63 .\promotion\views.py:122
+#: .\promotion\views.py:161
 msgid "Fleet form submission failed. Please correct the errors."
 msgstr "Отправка формы флота не удалась. Исправьте ошибки."
 
