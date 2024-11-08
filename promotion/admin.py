@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.utils.html import format_html
-from .models import City, Tour, TourImage, Car, ContactRequest, Social, OurInformation, Faq, UpdatesRequest, HomeFirstContent,FleetForm, TourForm,PriceByWayCount,Whoweare
+from .models import City, Tour, TourImage, Car, ContactRequest, Social, OurInformation, Faq, UpdatesRequest, HomeFirstContent,FleetForm, TourForm,PriceByWayCount,Whoweare, OwnerInfo
 from django.contrib.admin import DateFieldListFilter
 from modeltranslation.admin import TranslationAdmin
 
@@ -206,3 +206,8 @@ class WhoweareAdmin(CustomTranslationAdmin):
             'fields': ('thumbnail', 'image', 'head_title', 'content',)
         }),
     )
+
+class OwnerInfoAdmin(admin.ModelAdmin):
+    list_display = ['name', 'is_visible']
+
+admin.site.register(OwnerInfo, OwnerInfoAdmin)

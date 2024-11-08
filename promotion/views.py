@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .models import Tour, Car, Faq, HomeFirstContent, Whoweare
+from .models import Tour, Car, Faq, HomeFirstContent, Whoweare, OwnerInfo
 from .forms import CityFilterForm, ContactRequestForm, UpdatesRequestForm, FleetFormModelForm, TourFormModelForm
 from django.contrib import messages
 from django.core.mail import send_mail
@@ -187,13 +187,15 @@ def faq(request):
 
 def contact_request_view(request):
     form = ContactRequestForm()
+    owner_info = OwnerInfo.objects.filter(is_visible=True).first()
+    
     if request.method == 'GET' and 'submit' in request.GET:
         if request.GET.get('submit') == 'success':
             messages.success(request, "Your request has been sent!")
         elif request.GET.get('submit') == 'error':
             messages.error(request, "Your request could not be sent!")
 
-    return render(request, 'contact.html', {'form': form})
+    return render(request, 'contact.html', {'form': form, 'owner_info': owner_info})
 
 
 def submit_contact_request(request):
@@ -215,3 +217,5 @@ def submit_contact_request(request):
                     messages.error(request, error)
             return redirect('/contact?submit=error')
     return redirect('/contact')
+
+

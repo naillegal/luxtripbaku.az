@@ -939,6 +939,44 @@ footer ul li a {
   margin-right: 10px;
 }
 
+#owner {
+  padding: 50px 0px;
+}
+#owner .custom-container {
+  width: 90%;
+  margin: auto;
+}
+#owner .custom-container img {
+  width: 100%;
+  margin: auto;
+  display: block;
+  -o-object-fit: contain;
+     object-fit: contain;
+  height: 650px;
+  -o-object-position: top;
+     object-position: top;
+}
+@media (max-width: 991px) {
+  #owner .custom-container img {
+    height: 500px;
+  }
+}
+#owner .custom-container .owner-info {
+  margin-top: 10px;
+}
+@media (max-width: 991px) {
+  #owner .custom-container .owner-info {
+    text-align: center;
+  }
+}
+#owner .custom-container .owner-info p {
+  font-size: 18px;
+  padding-top: 20px;
+}
+#owner .custom-container .owner-info .info {
+  font-size: 15px;
+}
+
 #blog-upper {
   position: relative;
 }

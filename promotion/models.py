@@ -272,3 +272,15 @@ class Whoweare(models.Model):
 
     def __str__(self):
         return self.head_title
+    
+
+class OwnerInfo(models.Model):
+    name = models.CharField(max_length=100, verbose_name="Sahibkarın Adı")
+    mobile = models.CharField(max_length=15, verbose_name="Mobil Nömrə", null=True, blank=True)
+    email = models.EmailField(verbose_name="Email Ünvanı")
+    image = models.ImageField(upload_to='owners/', verbose_name="Sahibkar Şəkili")
+    info = models.TextField(null=True, blank=True)
+    is_visible = models.BooleanField(default=True, verbose_name="Görünür")
+
+    def __str__(self):
+        return self.name
