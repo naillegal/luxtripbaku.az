@@ -262,9 +262,10 @@ class TourForm(models.Model):
 
 # Home section Who we are? model 
 class Whoweare(models.Model):
-    image = models.ImageField(upload_to='whoweare/',null=False, blank=False, verbose_name='Who we are image')
-    head_title = models.TextField(null=False,blank=False)
-    content = models.TextField(null=False,blank=False)
+    section_title = models.TextField(null=True, blank=True)
+    head_title = models.TextField(null=False, blank=False)
+    content = models.TextField(null=False, blank=False)
+    image = models.ImageField(upload_to='whoweare/', null=False, blank=False, verbose_name='Şəkil')
 
     class Meta:
         verbose_name = 'Who we are'

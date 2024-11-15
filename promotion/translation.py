@@ -34,4 +34,4 @@ class HomeFirstContentTranslationOptions(TranslationOptions):
 
 @register(Whoweare)
 class WhoweareTranslationOptions(TranslationOptions):
-    fields = ('head_title', 'content',)
+    fields = ('head_title', 'content', 'section_title',)

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-10-23 23:32+0400\n"
+"POT-Creation-Date: 2024-11-15 19:53+0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -177,27 +177,27 @@ msgid ""
 msgstr ""
 "Контакты - Luxtripbaku компания с опытом организации трансферов и туров"
 
-#: .\promotion\templates\contact.html:36
+#: .\promotion\templates\contact.html:28
 msgid "Our Location"
 msgstr "Наше местоположение"
 
-#: .\promotion\templates\contact.html:45
+#: .\promotion\templates\contact.html:37
 msgid "Quick Contact"
 msgstr "Быстрая связь"
 
-#: .\promotion\templates\contact.html:46
+#: .\promotion\templates\contact.html:39
 msgid "Email:"
 msgstr "Email:"
 
-#: .\promotion\templates\contact.html:51
+#: .\promotion\templates\contact.html:46
 msgid "Call Us:"
 msgstr "Звоните нам:"
 
-#: .\promotion\templates\contact.html:68
+#: .\promotion\templates\contact.html:62
 msgid "Get In Touch"
 msgstr "Связаться с нами"
 
-#: .\promotion\templates\contact.html:69
+#: .\promotion\templates\contact.html:64
 msgid ""
 "Complete control over service allows us to ensure our customers receive the "
 "best quality prices and service."
@@ -205,7 +205,7 @@ msgstr ""
 "Полный контроль над сервисом позволяет нам гарантировать нашим клиентам "
 "лучшее качество цен и обслуживания."
 
-#: .\promotion\templates\contact.html:103
+#: .\promotion\templates\contact.html:98
 msgid "Submit Request"
 msgstr "Отправить запрос"
 
@@ -458,27 +458,23 @@ msgstr "Безопасные поездки"
 msgid "Who we are?"
 msgstr "Кто мы?"
 
-#: .\promotion\templates\index.html:854
-msgid "As Luxtripbaku company, we have over 8 years of experience"
-msgstr "Как компания Lux Trip Baku, мы имеем более 8 лет опыта"
+#: .\promotion\templates\index.html:857
 
-#: .\promotion\templates\index.html:854
-msgid "in organizing transfers and tours."
-msgstr "в организации трансферов и туров."
+msgid ""
+" As Luxtripbaku company, we have over 8 years of experience in organizing "
+"transfers and tours."
+msgstr "Как компания Lux Trip Baku, мы имеем более 8 лет опыта в организации трансферов и туров."
 
-#: .\promotion\templates\index.html:854
-msgid "Operator license - 005287 Company registration no - 1403412234"
-msgstr "Лицензия оператора-005287, Регистрационный номер компании-1403412234."
 
-#: .\promotion\templates\index.html:895
+#: .\promotion\templates\index.html:899
 msgid " Get Updates & More"
 msgstr "Получать новости & Mногое другое"
 
-#: .\promotion\templates\index.html:896
+#: .\promotion\templates\index.html:900
 msgid "Stay up-to-date with all the latest news"
 msgstr "Будьте в курсе всех последних новостей"
 
-#: .\promotion\templates\index.html:907
+#: .\promotion\templates\index.html:911
 msgid "Subscribe"
 msgstr "Подписаться"
 
@@ -589,6 +585,16 @@ msgstr "Меню"
 #: .\templates\layout.html:304
 msgid "All rights reserved"
 msgstr "Все права защищены"
+
+#~ msgid "As Luxtripbaku company, we have over 8 years of experience"
+#~ msgstr "Как компания Lux Trip Baku, мы имеем более 8 лет опыта"
+
+#~ msgid "in organizing transfers and tours."
+#~ msgstr "в организации трансферов и туров."
+
+#~ msgid "Operator license - 005287 Company registration no - 1403412234"
+#~ msgstr ""
+#~ "Лицензия оператора-005287, Регистрационный номер компании-1403412234."
 
 #, fuzzy
 #~| msgid "-way"

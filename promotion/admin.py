@@ -188,11 +188,10 @@ class TourFormAdmin(admin.ModelAdmin):
     mark_as_viewed.short_description = "Mark selected tour forms as viewed"
 
 
-# Who we are admin
 @admin.register(Whoweare)
 class WhoweareAdmin(CustomTranslationAdmin):
     list_display = ('head_title',)
-    
+
     def thumbnail(self, obj):
         if obj.image:
             return format_html('<img src="{}" width="120;" height="80;" />', obj.image.url)
@@ -203,9 +202,10 @@ class WhoweareAdmin(CustomTranslationAdmin):
 
     fieldsets = (
         (None, {
-            'fields': ('thumbnail', 'image', 'head_title', 'content',)
+            'fields': ('section_title', 'thumbnail', 'image', 'head_title', 'content')
         }),
     )
+
 
 class OwnerInfoAdmin(admin.ModelAdmin):
     list_display = ['name', 'is_visible']

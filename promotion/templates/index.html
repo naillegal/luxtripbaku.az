@@ -851,7 +851,11 @@
       <div class="who-we-are-first-content">
         <h2>{% trans 'Who we are?' %}</h2>
         <p>
-          {% trans 'As Luxtripbaku company, we have over 8 years of experience' %} {% trans 'in organizing transfers and tours.' %} {% trans 'Operator license - 005287 Company registration no - 1403412234' %}
+          {% if whoweare and whoweare.section_title %}
+                {{ whoweare.section_title|linebreaks }}
+            {% else %}
+           {% trans " As Luxtripbaku company, we have over 8 years of experience in organizing transfers and tours." %}
+            {% endif %}
         </p>
       </div>
       <div class="custom-container">
