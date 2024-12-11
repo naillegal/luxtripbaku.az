@@ -132,6 +132,18 @@ class FleetFormModelForm(forms.ModelForm):
             attrs={'class': 'form-control', 'maxlength': '15', 'placeholder': _('Enter your number here')})
     )
 
+    
+    guest_number = forms.IntegerField(
+        required=True,
+        widget=forms.TextInput(attrs={
+            'class': 'form-control',
+            'placeholder': _('Your guests number here')
+        }),
+        error_messages={
+            'required': _('Guest number is required.')
+        }
+    )
+
     class Meta:
         model = FleetForm
         fields = [
@@ -216,6 +228,18 @@ class TourFormModelForm(forms.ModelForm):
         validators=[phone_validator],
         widget=forms.TextInput(
             attrs={'class': 'form-control', 'maxlength': '15', 'placeholder': _('Enter your number here')})
+    )
+
+    
+    guest_number = forms.IntegerField(
+        required=True,
+        widget=forms.TextInput(attrs={
+            'class': 'form-control',
+            'placeholder': _('Your guests number here')
+        }),
+        error_messages={
+            'required': _('Guest number is required.')
+        }
     )
 
     class Meta:

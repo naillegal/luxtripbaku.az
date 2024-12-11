@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-11-15 19:53+0400\n"
+"POT-Creation-Date: 2024-12-12 01:29+0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -53,7 +53,7 @@ msgstr "Читать далее"
 msgid "No blog posts available."
 msgstr "Нет доступных блогов."
 
-#: .\promotion\forms.py:31 .\promotion\forms.py:126 .\promotion\forms.py:212
+#: .\promotion\forms.py:31 .\promotion\forms.py:126 .\promotion\forms.py:224
 msgid "Phone number must contain only digits and symbols (+, -, (, ), space)."
 msgstr ""
 "Номер телефона должен содержать только цифры и символы (+, -, (, ), пробел)."
@@ -90,36 +90,41 @@ msgstr "Вам нужно ввести свое имя."
 msgid "You need to type your request."
 msgstr "Вам необходимо ввести запрос."
 
-#: .\promotion\forms.py:132 .\promotion\forms.py:152 .\promotion\forms.py:218
-#: .\promotion\forms.py:236
+#: .\promotion\forms.py:132 .\promotion\forms.py:164 .\promotion\forms.py:230
+#: .\promotion\forms.py:260
 msgid "Enter your number here"
 msgstr "Введите свой номер здесь"
 
-#: .\promotion\forms.py:145 .\promotion\forms.py:232
+#: .\promotion\forms.py:140 .\promotion\forms.py:157 .\promotion\forms.py:238
+#: .\promotion\forms.py:256
 msgid "Your guests number here"
 msgstr "Номер количество гостей здесь"
 
-#: .\promotion\forms.py:146 .\promotion\forms.py:233
+#: .\promotion\forms.py:143 .\promotion\forms.py:241
+msgid "Guest number is required."
+msgstr "Требуется номер количество гостей."
+
+#: .\promotion\forms.py:158 .\promotion\forms.py:257
 msgid "Any additional requests?"
 msgstr "Любые дополнительные запросы?"
 
-#: .\promotion\forms.py:149
+#: .\promotion\forms.py:161
 msgid "Drop location here"
 msgstr "Место назначения"
 
-#: .\promotion\forms.py:150 .\promotion\forms.py:234
+#: .\promotion\forms.py:162 .\promotion\forms.py:258
 msgid "Type your full name here"
 msgstr "Введите здесь полное имя"
 
-#: .\promotion\forms.py:151 .\promotion\forms.py:235
+#: .\promotion\forms.py:163 .\promotion\forms.py:259
 msgid "example@gmail.com"
 msgstr "Введите здесь email"
 
-#: .\promotion\forms.py:153
+#: .\promotion\forms.py:165
 msgid "Your flight number here"
 msgstr "Номер вашего рейса здесь"
 
-#: .\promotion\forms.py:229
+#: .\promotion\forms.py:253
 msgid "Number of planned tour days"
 msgstr "Введите планируемые дни тура здесь"
 
@@ -335,8 +340,8 @@ msgstr "Номер авиарейса"
 #: .\promotion\templates\index.html:182 .\promotion\templates\index.html:359
 #: .\promotion\templates\index.html:574 .\promotion\templates\index.html:740
 #: .\promotion\templates\tours.html:206 .\promotion\templates\tours.html:360
-msgid "The number of guests"
-msgstr "Количество гостей"
+msgid "The number of guests*"
+msgstr "Количество гостей*"
 
 #: .\promotion\templates\fleet.html:229 .\promotion\templates\fleet.html:389
 #: .\promotion\templates\index.html:200 .\promotion\templates\index.html:375
@@ -459,12 +464,12 @@ msgid "Who we are?"
 msgstr "Кто мы?"
 
 #: .\promotion\templates\index.html:857
-
 msgid ""
 " As Luxtripbaku company, we have over 8 years of experience in organizing "
 "transfers and tours."
-msgstr "Как компания Lux Trip Baku, мы имеем более 8 лет опыта в организации трансферов и туров."
-
+msgstr ""
+"Как компания Lux Trip Baku, мы имеем более 8 лет опыта в организации "
+"трансферов и туров."
 
 #: .\promotion\templates\index.html:899
 msgid " Get Updates & More"
