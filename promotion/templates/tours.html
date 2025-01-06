@@ -93,13 +93,17 @@
               <div class="alert {% if 'success' in message.tags %}
                   
                   
+                  
                   alert-success
+
 
 
                 {% elif 'error' in message.tags %}
                   
                   
+                  
                   alert-danger
+
 
 
                 {% endif %} mt-3">
@@ -267,9 +271,13 @@
           {% if messages %}
             {% for message in messages %}
               <div class="alert {% if 'success' in message.tags %}
+                  
                   alert-success
+
                 {% elif 'error' in message.tags %}
+                  
                   alert-danger
+
                 {% endif %} mt-3">
                 {{ message }}
                 {% if 'success' in message.tags %}
@@ -357,10 +365,10 @@
             <!-- Guests Number -->
             <div class="form-group">
               <div class="d-flex">
-                <label for="{{ fleetform.guest_number.id_for_label }}">{% trans 'The number of guests*' %}</label>
+                <label for="{{ tourform.guest_number.id_for_label }}">{% trans 'The number of guests*' %}</label>
                 <i class="fa-solid fa-users-line"></i>
               </div>
-              {{ fleetform.guest_number }}
+              {{ tourform.guest_number }}
             </div>
 
             <!-- Additional Request -->

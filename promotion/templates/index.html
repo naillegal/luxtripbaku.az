@@ -48,27 +48,11 @@
                   {% for message in messages %}
                     <div class="alert {% if 'success' in message.tags %}
                         
-                        
-                        
-                        
-                        
                         alert-success
-
-
-
-
 
                       {% elif 'error' in message.tags %}
                         
-                        
-                        
-                        
-                        
                         alert-danger
-
-
-
-
 
                       {% endif %} mt-3">
                       {{ message }}
@@ -249,7 +233,13 @@
                         
                         
                         
+                        
+                        
+                        
                         alert-success
+
+
+
 
 
 
@@ -259,7 +249,13 @@
                         
                         
                         
+                        
+                        
+                        
                         alert-danger
+
+
+
 
 
 
@@ -356,11 +352,12 @@
                     <!-- Guests Number -->
                     <div class="form-group">
                       <div class="d-flex">
-                        <label for="{{ fleetform.guest_number.id_for_label }}">{% trans 'The number of guests*' %}</label>
+                        <label for="{{ tourform.guest_number.id_for_label }}">{% trans 'The number of guests*' %}</label>
                         <i class="fa-solid fa-users-line"></i>
                       </div>
-                      {{ fleetform.guest_number }}
+                      {{ tourform.guest_number }}
                     </div>
+
                     <!-- Additional Request -->
                     <div class="form-group">
                       <div class="d-flex">
@@ -446,9 +443,15 @@
                     
                     
                     
+                    
+                    
+                    
                         
                         
                         alert-success
+
+
+
 
 
 
@@ -458,9 +461,15 @@
                     
                     
                     
+                    
+                    
+                    
                         
                         
                         alert-danger
+
+
+
 
 
 
@@ -637,11 +646,23 @@
               {% for message in messages %}
                 <div class="alert {% if 'success' in message.tags %}
                     
+                    
+                    
+                    
                     alert-success
+
+
+
 
                   {% elif 'error' in message.tags %}
                     
+                    
+                    
+                    
                     alert-danger
+
+
+
 
                   {% endif %} mt-3">
                   {{ message }}
@@ -737,10 +758,10 @@
                 <!-- Guests Number -->
                 <div class="form-group">
                   <div class="d-flex">
-                    <label for="{{ fleetform.guest_number.id_for_label }}">{% trans 'The number of guests*' %}</label>
+                    <label for="{{ tourform.guest_number.id_for_label }}">{% trans 'The number of guests*' %}</label>
                     <i class="fa-solid fa-users-line"></i>
                   </div>
-                  {{ fleetform.guest_number }}
+                  {{ tourform.guest_number }}
                 </div>
 
                 <!-- Additional Request -->
@@ -852,10 +873,10 @@
         <h2>{% trans 'Who we are?' %}</h2>
         <p>
           {% if whoweare and whoweare.section_title %}
-                {{ whoweare.section_title|linebreaks }}
-            {% else %}
-           {% trans " As Luxtripbaku company, we have over 8 years of experience in organizing transfers and tours." %}
-            {% endif %}
+            {{ whoweare.section_title|linebreaks }}
+          {% else %}
+            {% trans ' As Luxtripbaku company, we have over 8 years of experience in organizing transfers and tours.' %}
+          {% endif %}
         </p>
       </div>
       <div class="custom-container">
