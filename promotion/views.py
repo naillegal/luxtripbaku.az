@@ -5,10 +5,7 @@ from django.contrib import messages
 from django.core.mail import send_mail
 from django.conf import settings
 from django.utils.translation import gettext_lazy as _
-import logging
 # Create your views here.
-
-logger = logging.getLogger(__name__)
 
 
 def home(request):
@@ -51,16 +48,13 @@ def submit_fleet_form(request):
         fleetform = FleetFormModelForm(request.POST, prefix='fleet_')
         if fleetform.is_valid():
             fleetform.save()
-            try:
-                send_mail(
-                    'You have a new Transfer Form',
-                    'Details are available in the admin panel.',
-                    settings.EMAIL_HOST_USER,
-                    ['luxtripbaku@gmail.com'],
-                    fail_silently=False,
-                )
-            except Exception as e:
-                logger.error(f"Fleet form email sending failed: {e}")
+            send_mail(
+                'You have a new Transfer Form',  
+                'Details are available in the admin panel.', 
+                settings.EMAIL_HOST_USER,  
+                ['luxtripbaku@gmail.com'],  
+                fail_silently=True,
+            )
             messages.success(
                 request, _('Thank you! We have received your request and will get back to you shortly.'))
             return redirect('/')
@@ -80,22 +74,19 @@ def submit_tour_form(request):
         tourform = TourFormModelForm(request.POST, prefix='tour_')
         if tourform.is_valid():
             tourform.save()
-            try:
-                send_mail(
-                    'You have a new Tour Form',
-                    'Details are available in the admin panel.',
-                    settings.EMAIL_HOST_USER,
-                    ['luxtripbaku@gmail.com'],
-                    fail_silently=False,
-                )
-            except Exception as e:
-                logger.error(f"Tour form email sending failed: {e}")
+            send_mail(
+                'You have a new Tour Form',  
+                'Details are available in the admin panel.', 
+                settings.EMAIL_HOST_USER,  
+                ['luxtripbaku@gmail.com'],  
+                fail_silently=True,
+            )
             messages.success(
-                request, _('Thank you! We have received your request and will get back to you shortly.'))
+                request,  _('Thank you! We have received your request and will get back to you shortly.'))
             return redirect('/')
         else:
-            messages.error(request, _(
-                'Tour form submission failed. Please correct the errors.'))
+            messages.error(
+                request, _('Tour form submission failed. Please correct the errors.'))
             return render(request, 'index.html', {
                 'fleetform': FleetFormModelForm(prefix='fleet_'),
                 'tourform': tourform,
@@ -197,7 +188,7 @@ def faq(request):
 def contact_request_view(request):
     form = ContactRequestForm()
     owner_info = OwnerInfo.objects.filter(is_visible=True).first()
-
+    
     if request.method == 'GET' and 'submit' in request.GET:
         if request.GET.get('submit') == 'success':
             messages.success(request, "Your request has been sent!")
@@ -212,20 +203,19 @@ def submit_contact_request(request):
         form = ContactRequestForm(request.POST)
         if form.is_valid():
             form.save()
-            try:
-                send_mail(
-                    'You have a new Contact Form',
-                    'Details are available in the admin panel.',
-                    settings.EMAIL_HOST_USER,
-                    ['luxtripbaku@gmail.com'],
-                    fail_silently=False,
-                )
-            except Exception as e:
-                logger.error(f"Contact form email sending failed: {e}")
+            send_mail(
+                'You have a new Contact Form',  
+                'Details are available in the admin panel.', 
+                settings.EMAIL_HOST_USER,  
+                ['luxtripbaku@gmail.com'],  
+                fail_silently=True,
+            )
             return redirect('/contact?submit=success')
         else:
-            for field, errors in form.errors.items():
+            for errors in form.errors.items():
                 for error in errors:
                     messages.error(request, error)
             return redirect('/contact?submit=error')
     return redirect('/contact')
+
+
