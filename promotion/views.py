@@ -51,7 +51,7 @@ def submit_fleet_form(request):
             send_mail(
                 'You have a new Transfer Form',  
                 'Details are available in the admin panel.', 
-                settings.EMAIL_HOST_USER,  
+                settings.DEFAULT_FROM_EMAIL,  
                 ['luxtripbaku@gmail.com'],  
                 fail_silently=False,
             )
@@ -77,7 +77,7 @@ def submit_tour_form(request):
             send_mail(
                 'You have a new Tour Form',  
                 'Details are available in the admin panel.', 
-                settings.EMAIL_HOST_USER,  
+                settings.DEFAULT_FROM_EMAIL,  
                 ['luxtripbaku@gmail.com'],  
                 fail_silently=False,
             )
@@ -206,7 +206,7 @@ def submit_contact_request(request):
             send_mail(
                 'You have a new Contact Form',  
                 'Details are available in the admin panel.', 
-                settings.EMAIL_HOST_USER,  
+                settings.DEFAULT_FROM_EMAIL,  
                 ['luxtripbaku@gmail.com'],  
                 fail_silently=False,
             )
