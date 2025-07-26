@@ -109,7 +109,7 @@ def updates_request_view(request):
 
 def tours(request):
     form = CityFilterForm(request.GET or None)
-    tours = Tour.objects.all()
+    tours = Tour.objects.select_related('city').prefetch_related('images').all()
     fleetform = FleetFormModelForm(prefix='fleet_')
     tourform = TourFormModelForm(prefix='tour_')
 
@@ -148,7 +148,7 @@ def tours(request):
 
 
 def fleet(request):
-    cars = Car.objects.all()
+    cars = Car.objects.prefetch_related('prices').all()
     fleetform = FleetFormModelForm(prefix='fleet_')
     tourform = TourFormModelForm(prefix='tour_')
 
