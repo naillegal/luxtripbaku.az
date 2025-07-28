@@ -22,22 +22,10 @@ from django.conf.urls.i18n import i18n_patterns
 from django.views.generic import TemplateView
 from os import getenv
 from django.contrib.sitemaps.views import sitemap
-from backend.sitemaps import BlogSitemap, CategorySitemap, StaticViewSitemap, TagSitemap
-
-
-
-sitemaps = {
-    'static': StaticViewSitemap,
-    'article': BlogSitemap,
-    'tag': TagSitemap,
-    'category': CategorySitemap
-}
 
 urlpatterns = [
     path(getenv('ADMIN_URL'), admin.site.urls),
     path("i18n/", include("django.conf.urls.i18n")),
-    path('sitemap.xml', sitemap, {'sitemaps': sitemaps}, name='django.contrib.sitemaps.views.sitemap'),
-    path('robots.txt', TemplateView.as_view(template_name='robots.txt', content_type='text/plain'), name='robots'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) + i18n_patterns(
     path('', include('blog.urls')),
     path('', include('promotion.urls')),
