@@ -47,7 +47,7 @@ class BlogSitemap(sitemaps.Sitemap):
     changefreq = 'monthly'
 
     def items(self):
-        return Blog.objects.filter(show=True)
+        return Blog.objects.all()
 
 
 class CategorySitemap(sitemaps.Sitemap):
