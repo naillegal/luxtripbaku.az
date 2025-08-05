@@ -366,5 +366,15 @@ document.querySelectorAll('#country-code').forEach(function(selectElement) {
   });
 });
 
+// submit buttons request only 1 time 
+document.querySelectorAll('form').forEach(form => {
+  form.addEventListener('submit', function (e) {
+    const submitBtn = this.querySelector('button[type="submit"]');
+    if (submitBtn) {
+      submitBtn.disabled = true;        
+      submitBtn.classList.add('loading'); 
+    }
+  }, { once: true }); 
+});
 
 
