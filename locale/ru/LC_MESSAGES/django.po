@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-06 15:09+0400\n"
+"POT-Creation-Date: 2026-01-06 15:19+0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -246,11 +246,13 @@ msgid ""
 "Baku Airport Transfer Rates - Luxtripbaku a company experienced in "
 "organizing transfers and tours"
 msgstr ""
-"Трансферы из аэропорта (цены) - Luxtripbaku компания с опытом организации трансферов и туров"
+"Трансферы из аэропорта (цены) - Luxtripbaku компания с опытом организации "
+"трансферов и туров"
 
-#: .\promotion\templates\fleet.html:21
-msgid "Fleet&Rate"
-msgstr "Автопарк&Тарифы"
+#: .\promotion\templates\fleet.html:21 .\templates\layout.html:161
+#: .\templates\layout.html:181 .\templates\layout.html:292
+msgid "Baku Airport Transfer Rates"
+msgstr "Трансферы из аэропорта (цены)"
 
 #: .\promotion\templates\fleet.html:24
 msgid "Transfer prices in Baku"
@@ -494,11 +496,13 @@ msgid ""
 "Azerbaijan Tours & Day Trips - Luxtripbaku a company experienced in "
 "organizing transfers and tours"
 msgstr ""
-"Туры по Азербайджану - Luxtripbaku компания с опытом организации трансферов и туров"
+"Туры по Азербайджану - Luxtripbaku компания с опытом организации трансферов "
+"и туров"
 
-#: .\promotion\templates\tours.html:21
-msgid "Private Transfers&Tours"
-msgstr "Частный Трансферы&Туры"
+#: .\promotion\templates\tours.html:21 .\templates\layout.html:162
+#: .\templates\layout.html:187 .\templates\layout.html:293
+msgid "Azerbaijan Tours & Day Trips"
+msgstr "Туры по Азербайджану"
 
 #: .\promotion\templates\tours.html:22
 msgid "All photos are real"
@@ -563,16 +567,6 @@ msgstr "Русский"
 msgid "English"
 msgstr "Английский"
 
-#: .\templates\layout.html:161 .\templates\layout.html:181
-#: .\templates\layout.html:292
-msgid "Baku Airport Transfer Rates"
-msgstr "Трансферы из аэропорта (цены)"
-
-#: .\templates\layout.html:162 .\templates\layout.html:187
-#: .\templates\layout.html:293
-msgid "Azerbaijan Tours & Day Trips"
-msgstr "Туры по Азербайджану"
-
 #: .\templates\layout.html:165 .\templates\layout.html:197
 #: .\templates\layout.html:298
 msgid "Contact Us"
@@ -601,6 +595,12 @@ msgstr "Меню"
 #: .\templates\layout.html:309
 msgid "All rights reserved"
 msgstr "Все права защищены"
+
+#~ msgid "Fleet&Rate"
+#~ msgstr "Автопарк&Тарифы"
+
+#~ msgid "Private Transfers&Tours"
+#~ msgstr "Частный Трансферы&Туры"
 
 #~ msgid ""
 #~ "Fleet&Rate - Luxtripbaku a company experienced in organizing transfers "
