@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-12-12 01:29+0400\n"
+"POT-Creation-Date: 2026-01-06 15:09+0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,19 +16,19 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n"
-"%100>=11 && n%100<=14)? 2 : 3);\n"
+"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || "
+"(n%100>=11 && n%100<=14)? 2 : 3);\n"
 
 #: .\blog\templates\blog-detail.html:23 .\blog\templates\blog.html:23
-#: .\templates\layout.html:155 .\templates\layout.html:170
-#: .\templates\layout.html:286
+#: .\templates\layout.html:160 .\templates\layout.html:175
+#: .\templates\layout.html:291
 msgid "Home"
 msgstr "Главная"
 
 #: .\blog\templates\blog-detail.html:24 .\blog\templates\blog.html:20
-#: .\blog\templates\blog.html:24 .\templates\layout.html:158
-#: .\templates\layout.html:186 .\templates\layout.html:291
+#: .\blog\templates\blog.html:24 .\templates\layout.html:163
+#: .\templates\layout.html:191 .\templates\layout.html:296
 msgid "Blog"
 msgstr "Блог"
 
@@ -74,11 +74,11 @@ msgstr "Email"
 msgid "Website"
 msgstr "Веб-сайт"
 
-#: .\promotion\forms.py:48 .\promotion\templates\fleet.html:220
-#: .\promotion\templates\fleet.html:380 .\promotion\templates\index.html:191
-#: .\promotion\templates\index.html:367 .\promotion\templates\index.html:583
-#: .\promotion\templates\index.html:749 .\promotion\templates\tours.html:215
-#: .\promotion\templates\tours.html:369
+#: .\promotion\forms.py:48 .\promotion\templates\fleet.html:224
+#: .\promotion\templates\fleet.html:388 .\promotion\templates\index.html:175
+#: .\promotion\templates\index.html:364 .\promotion\templates\index.html:592
+#: .\promotion\templates\index.html:770 .\promotion\templates\tours.html:219
+#: .\promotion\templates\tours.html:377
 msgid "Additional request"
 msgstr "Дополнительные запросы"
 
@@ -220,8 +220,8 @@ msgid ""
 msgstr ""
 "Вопрос-Ответ - Luxtripbaku компания с опытом организации трансферов и туров"
 
-#: .\promotion\templates\faq.html:21 .\templates\layout.html:159
-#: .\templates\layout.html:188 .\templates\layout.html:292
+#: .\promotion\templates\faq.html:21 .\templates\layout.html:164
+#: .\templates\layout.html:193 .\templates\layout.html:297
 msgid "FAQ"
 msgstr "Вопрос-Ответ"
 
@@ -238,15 +238,17 @@ msgstr ""
 "стесняйтесь спрашивать нас!"
 
 #: .\promotion\templates\fleet.html:6
+#, fuzzy
+#| msgid ""
+#| "Transfers&Tours - Luxtripbaku a company experienced in organizing "
+#| "transfers and tours"
 msgid ""
-"Fleet&Rate - Luxtripbaku a company experienced in organizing transfers and "
-"tours"
+"Baku Airport Transfer Rates - Luxtripbaku a company experienced in "
+"organizing transfers and tours"
 msgstr ""
-"Автопарк&Тарифы - Luxtripbaku компания с опытом организации трансферов и "
-"туров"
+"Трансферы из аэропорта (цены) - Luxtripbaku компания с опытом организации трансферов и туров"
 
-#: .\promotion\templates\fleet.html:21 .\templates\layout.html:157
-#: .\templates\layout.html:182 .\templates\layout.html:288
+#: .\promotion\templates\fleet.html:21
 msgid "Fleet&Rate"
 msgstr "Автопарк&Тарифы"
 
@@ -275,140 +277,140 @@ msgid "2 way"
 msgstr "В обе стороны"
 
 #: .\promotion\templates\fleet.html:81 .\promotion\templates\fleet.html:85
-#: .\promotion\templates\index.html:39 .\promotion\templates\index.html:435
+#: .\promotion\templates\index.html:39 .\promotion\templates\index.html:432
 #: .\promotion\templates\tours.html:80 .\promotion\templates\tours.html:83
 msgid "Transfer booking"
 msgstr "Бронирование трансфера"
 
 #: .\promotion\templates\fleet.html:82 .\promotion\templates\fleet.html:88
-#: .\promotion\templates\index.html:42 .\promotion\templates\index.html:438
+#: .\promotion\templates\index.html:42 .\promotion\templates\index.html:435
 #: .\promotion\templates\tours.html:79 .\promotion\templates\tours.html:86
 msgid "Tour booking"
 msgstr "Бронирование тура"
 
-#: .\promotion\templates\fleet.html:135 .\promotion\templates\index.html:99
-#: .\promotion\templates\index.html:495 .\promotion\templates\tours.html:132
+#: .\promotion\templates\fleet.html:139 .\promotion\templates\index.html:83
+#: .\promotion\templates\index.html:504 .\promotion\templates\tours.html:136
 msgid "Please provide the transfer details below."
 msgstr "Пожалуйста, укажите ниже детали трансфера. "
 
-#: .\promotion\templates\fleet.html:136 .\promotion\templates\index.html:100
-#: .\promotion\templates\index.html:496 .\promotion\templates\tours.html:133
+#: .\promotion\templates\fleet.html:140 .\promotion\templates\index.html:84
+#: .\promotion\templates\index.html:505 .\promotion\templates\tours.html:137
 msgid "We will get back to you shortly with the most "
 msgstr "Мы свяжемся с вами в ближайшее время с"
 
-#: .\promotion\templates\fleet.html:137 .\promotion\templates\index.html:101
-#: .\promotion\templates\index.html:497 .\promotion\templates\tours.html:134
+#: .\promotion\templates\fleet.html:141 .\promotion\templates\index.html:85
+#: .\promotion\templates\index.html:506 .\promotion\templates\tours.html:138
 msgid "suitable price offers!"
 msgstr "наиболее подходящими ценовыми предложениями!"
 
-#: .\promotion\templates\fleet.html:143 .\promotion\templates\index.html:107
-#: .\promotion\templates\index.html:503 .\promotion\templates\tours.html:140
+#: .\promotion\templates\fleet.html:147 .\promotion\templates\index.html:91
+#: .\promotion\templates\index.html:512 .\promotion\templates\tours.html:144
 msgid "Pickup Location*"
 msgstr "Откуда"
 
-#: .\promotion\templates\fleet.html:152 .\promotion\templates\index.html:116
-#: .\promotion\templates\index.html:512 .\promotion\templates\tours.html:149
+#: .\promotion\templates\fleet.html:156 .\promotion\templates\index.html:100
+#: .\promotion\templates\index.html:521 .\promotion\templates\tours.html:153
 msgid "Drop-off location*"
 msgstr "Место назначения"
 
-#: .\promotion\templates\fleet.html:161 .\promotion\templates\index.html:126
-#: .\promotion\templates\index.html:522 .\promotion\templates\tours.html:158
+#: .\promotion\templates\fleet.html:165 .\promotion\templates\index.html:110
+#: .\promotion\templates\index.html:531 .\promotion\templates\tours.html:162
 msgid "Date of service*"
 msgstr "Дата услуги"
 
-#: .\promotion\templates\fleet.html:168 .\promotion\templates\index.html:133
-#: .\promotion\templates\index.html:529 .\promotion\templates\tours.html:165
+#: .\promotion\templates\fleet.html:172 .\promotion\templates\index.html:117
+#: .\promotion\templates\index.html:538 .\promotion\templates\tours.html:169
 msgid "Time of service*"
 msgstr "Время услуги"
 
-#: .\promotion\templates\fleet.html:177 .\promotion\templates\index.html:143
-#: .\promotion\templates\index.html:539 .\promotion\templates\index.html:710
-#: .\promotion\templates\tours.html:174
+#: .\promotion\templates\fleet.html:181 .\promotion\templates\index.html:127
+#: .\promotion\templates\index.html:548 .\promotion\templates\index.html:731
+#: .\promotion\templates\tours.html:178
 msgid "Car class*"
 msgstr "Класс автомобиля"
 
-#: .\promotion\templates\fleet.html:182
+#: .\promotion\templates\fleet.html:186
 msgid " Select a Car Class"
 msgstr "Выберите класс автомобиля"
 
-#: .\promotion\templates\fleet.html:202 .\promotion\templates\index.html:173
-#: .\promotion\templates\index.html:565 .\promotion\templates\tours.html:197
+#: .\promotion\templates\fleet.html:206 .\promotion\templates\index.html:157
+#: .\promotion\templates\index.html:574 .\promotion\templates\tours.html:201
 msgid "Flight number"
 msgstr "Номер авиарейса"
 
-#: .\promotion\templates\fleet.html:211 .\promotion\templates\fleet.html:371
-#: .\promotion\templates\index.html:182 .\promotion\templates\index.html:359
-#: .\promotion\templates\index.html:574 .\promotion\templates\index.html:740
-#: .\promotion\templates\tours.html:206 .\promotion\templates\tours.html:360
+#: .\promotion\templates\fleet.html:215 .\promotion\templates\fleet.html:379
+#: .\promotion\templates\index.html:166 .\promotion\templates\index.html:355
+#: .\promotion\templates\index.html:583 .\promotion\templates\index.html:761
+#: .\promotion\templates\tours.html:210 .\promotion\templates\tours.html:368
 msgid "The number of guests*"
 msgstr "Количество гостей*"
 
-#: .\promotion\templates\fleet.html:229 .\promotion\templates\fleet.html:389
-#: .\promotion\templates\index.html:200 .\promotion\templates\index.html:375
-#: .\promotion\templates\index.html:591 .\promotion\templates\index.html:757
-#: .\promotion\templates\tours.html:224 .\promotion\templates\tours.html:378
+#: .\promotion\templates\fleet.html:233 .\promotion\templates\fleet.html:397
+#: .\promotion\templates\index.html:184 .\promotion\templates\index.html:372
+#: .\promotion\templates\index.html:600 .\promotion\templates\index.html:778
+#: .\promotion\templates\tours.html:228 .\promotion\templates\tours.html:386
 msgid "Full name*"
 msgstr "Полное имя"
 
-#: .\promotion\templates\fleet.html:238 .\promotion\templates\fleet.html:398
-#: .\promotion\templates\index.html:209 .\promotion\templates\index.html:384
-#: .\promotion\templates\index.html:600 .\promotion\templates\index.html:766
-#: .\promotion\templates\tours.html:233 .\promotion\templates\tours.html:387
+#: .\promotion\templates\fleet.html:242 .\promotion\templates\fleet.html:406
+#: .\promotion\templates\index.html:193 .\promotion\templates\index.html:381
+#: .\promotion\templates\index.html:609 .\promotion\templates\index.html:787
+#: .\promotion\templates\tours.html:237 .\promotion\templates\tours.html:395
 msgid "Email*"
 msgstr "E-mail"
 
-#: .\promotion\templates\fleet.html:246 .\promotion\templates\fleet.html:406
-#: .\promotion\templates\index.html:217 .\promotion\templates\index.html:392
-#: .\promotion\templates\index.html:608 .\promotion\templates\index.html:774
-#: .\promotion\templates\tours.html:241 .\promotion\templates\tours.html:395
+#: .\promotion\templates\fleet.html:250 .\promotion\templates\fleet.html:414
+#: .\promotion\templates\index.html:201 .\promotion\templates\index.html:389
+#: .\promotion\templates\index.html:617 .\promotion\templates\index.html:795
+#: .\promotion\templates\tours.html:245 .\promotion\templates\tours.html:403
 msgid "Cell Phone*"
 msgstr "Номер телефона"
 
-#: .\promotion\templates\fleet.html:267 .\promotion\templates\fleet.html:427
-#: .\promotion\templates\index.html:238 .\promotion\templates\index.html:413
-#: .\promotion\templates\index.html:629 .\promotion\templates\index.html:795
-#: .\promotion\templates\tours.html:43 .\promotion\templates\tours.html:262
-#: .\promotion\templates\tours.html:416
+#: .\promotion\templates\fleet.html:271 .\promotion\templates\fleet.html:435
+#: .\promotion\templates\index.html:222 .\promotion\templates\index.html:410
+#: .\promotion\templates\index.html:638 .\promotion\templates\index.html:816
+#: .\promotion\templates\tours.html:43 .\promotion\templates\tours.html:266
+#: .\promotion\templates\tours.html:424
 msgid "Submit"
 msgstr "Отправить"
 
-#: .\promotion\templates\fleet.html:309 .\promotion\templates\index.html:294
-#: .\promotion\templates\index.html:673 .\promotion\templates\tours.html:300
+#: .\promotion\templates\fleet.html:317 .\promotion\templates\index.html:290
+#: .\promotion\templates\index.html:694 .\promotion\templates\tours.html:308
 msgid "Please list your preferences below. We will get back"
 msgstr "Пожалуйста, укажите свои предпочтения ниже. Мы вернемся"
 
-#: .\promotion\templates\fleet.html:310 .\promotion\templates\index.html:295
-#: .\promotion\templates\index.html:674 .\promotion\templates\tours.html:301
+#: .\promotion\templates\fleet.html:318 .\promotion\templates\index.html:291
+#: .\promotion\templates\index.html:695 .\promotion\templates\tours.html:309
 msgid "to you as soon as possible with the best offers"
 msgstr "к вам, как можно скорее с лучшими предложениями,"
 
-#: .\promotion\templates\fleet.html:311 .\promotion\templates\index.html:296
-#: .\promotion\templates\index.html:675 .\promotion\templates\tours.html:302
+#: .\promotion\templates\fleet.html:319 .\promotion\templates\index.html:292
+#: .\promotion\templates\index.html:696 .\promotion\templates\tours.html:310
 msgid "that match your requests!"
 msgstr "которые соответствуют вашим запросам!"
 
-#: .\promotion\templates\fleet.html:317 .\promotion\templates\index.html:302
-#: .\promotion\templates\index.html:681 .\promotion\templates\tours.html:308
+#: .\promotion\templates\fleet.html:325 .\promotion\templates\index.html:298
+#: .\promotion\templates\index.html:702 .\promotion\templates\tours.html:316
 msgid "Select the cities or districts you wish to tour*"
 msgstr "Выберите города или районы, которые вы хотите посетить"
 
-#: .\promotion\templates\fleet.html:326 .\promotion\templates\index.html:311
-#: .\promotion\templates\index.html:690 .\promotion\templates\tours.html:317
+#: .\promotion\templates\fleet.html:334 .\promotion\templates\index.html:307
+#: .\promotion\templates\index.html:711 .\promotion\templates\tours.html:325
 msgid "Planned tour days*"
 msgstr "Планируемые дни тура"
 
-#: .\promotion\templates\fleet.html:336 .\promotion\templates\index.html:321
-#: .\promotion\templates\index.html:700 .\promotion\templates\tours.html:327
+#: .\promotion\templates\fleet.html:344 .\promotion\templates\index.html:317
+#: .\promotion\templates\index.html:721 .\promotion\templates\tours.html:335
 msgid "Travel date*"
 msgstr "Дата путешествия"
 
-#: .\promotion\templates\fleet.html:346 .\promotion\templates\index.html:331
-#: .\promotion\templates\tours.html:337
+#: .\promotion\templates\fleet.html:354 .\promotion\templates\index.html:327
+#: .\promotion\templates\tours.html:345
 msgid "Car class"
 msgstr "Класс автомобиля"
 
-#: .\promotion\templates\fleet.html:351 .\promotion\templates\index.html:148
-#: .\promotion\templates\index.html:336 .\promotion\templates\index.html:715
+#: .\promotion\templates\fleet.html:359 .\promotion\templates\index.html:132
+#: .\promotion\templates\index.html:332 .\promotion\templates\index.html:736
 msgid "Select a Car Class"
 msgstr "Выберите класс автомобиля"
 
@@ -417,53 +419,53 @@ msgid ""
 "Home - Luxtripbaku a company experienced in organizing transfers and tours"
 msgstr "Главная - Luxtripbaku компания с опытом организации трансферов и туров"
 
-#: .\promotion\templates\index.html:166 .\promotion\templates\index.html:353
-#: .\promotion\templates\index.html:559 .\promotion\templates\index.html:733
+#: .\promotion\templates\index.html:150 .\promotion\templates\index.html:349
+#: .\promotion\templates\index.html:568 .\promotion\templates\index.html:754
 msgid "More details"
 msgstr "Подробнее"
 
-#: .\promotion\templates\index.html:804
+#: .\promotion\templates\index.html:825
 msgid "Our Advantages"
 msgstr "Наши преимущества"
 
-#: .\promotion\templates\index.html:806
+#: .\promotion\templates\index.html:827
 msgid "As a leading travel company, we bring over 8 years of expertise"
 msgstr "Как ведущая компания по трансферам, мы предлагаем более 8 лет опыта"
 
-#: .\promotion\templates\index.html:806
+#: .\promotion\templates\index.html:827
 msgid "in crafting personalized tours and seamless transfers."
 msgstr "в создании частные туров и бесперебойных трансферов."
 
-#: .\promotion\templates\index.html:814
+#: .\promotion\templates\index.html:835
 msgid "Reservation without deposit and cancellation without charge"
 msgstr "Бронирование без предоплаты и отмена без штрафа"
 
-#: .\promotion\templates\index.html:820
+#: .\promotion\templates\index.html:841
 msgid "There are no hidden costs"
 msgstr "Отсутствие скрытых затрат"
 
-#: .\promotion\templates\index.html:826
+#: .\promotion\templates\index.html:847
 msgid "Free waiting time"
 msgstr "Бесплатное ожидание"
 
-#: .\promotion\templates\index.html:832
+#: .\promotion\templates\index.html:853
 msgid "Disinfection of cars after each guest"
 msgstr "Дезинфекция автомобилей после каждого гостя"
 
-#: .\promotion\templates\index.html:838
+#: .\promotion\templates\index.html:859
 msgid "Polite, punctual and experienced drivers specially trained"
 msgstr ""
 "Вежливые, пунктуальные и опытные водители, прошедшие специальную подготовку"
 
-#: .\promotion\templates\index.html:844
+#: .\promotion\templates\index.html:865
 msgid "Safe rides"
 msgstr "Безопасные поездки"
 
-#: .\promotion\templates\index.html:852
+#: .\promotion\templates\index.html:873
 msgid "Who we are?"
 msgstr "Кто мы?"
 
-#: .\promotion\templates\index.html:857
+#: .\promotion\templates\index.html:878
 msgid ""
 " As Luxtripbaku company, we have over 8 years of experience in organizing "
 "transfers and tours."
@@ -471,24 +473,28 @@ msgstr ""
 "Как компания Lux Trip Baku, мы имеем более 8 лет опыта в организации "
 "трансферов и туров."
 
-#: .\promotion\templates\index.html:899
+#: .\promotion\templates\index.html:920
 msgid " Get Updates & More"
 msgstr "Получать новости & Mногое другое"
 
-#: .\promotion\templates\index.html:900
+#: .\promotion\templates\index.html:921
 msgid "Stay up-to-date with all the latest news"
 msgstr "Будьте в курсе всех последних новостей"
 
-#: .\promotion\templates\index.html:911
+#: .\promotion\templates\index.html:932
 msgid "Subscribe"
 msgstr "Подписаться"
 
 #: .\promotion\templates\tours.html:6
+#, fuzzy
+#| msgid ""
+#| "Transfers&Tours - Luxtripbaku a company experienced in organizing "
+#| "transfers and tours"
 msgid ""
-"Transfers&Tours - Luxtripbaku a company experienced in organizing transfers "
-"and tours"
+"Azerbaijan Tours & Day Trips - Luxtripbaku a company experienced in "
+"organizing transfers and tours"
 msgstr ""
-"Трансферы&Туры - Luxtripbaku компания с опытом организации трансферов и туров"
+"Туры по Азербайджану - Luxtripbaku компания с опытом организации трансферов и туров"
 
 #: .\promotion\templates\tours.html:21
 msgid "Private Transfers&Tours"
@@ -530,66 +536,81 @@ msgstr "места, которые соответствуют вашим пре�
 msgid "Select city:"
 msgstr "Выберите город"
 
-#: .\promotion\views.py:21 .\promotion\views.py:31 .\promotion\views.py:59
-#: .\promotion\views.py:85 .\promotion\views.py:119 .\promotion\views.py:129
-#: .\promotion\views.py:158 .\promotion\views.py:168
+#: .\promotion\views.py:20 .\promotion\views.py:30 .\promotion\views.py:58
+#: .\promotion\views.py:84 .\promotion\views.py:118 .\promotion\views.py:128
+#: .\promotion\views.py:157 .\promotion\views.py:167
 msgid ""
 "Thank you! We have received your request and will get back to you shortly."
 msgstr "Спасибо! Мы получили ваш запрос и скоро свяжемся с вами."
 
-#: .\promotion\views.py:24 .\promotion\views.py:63 .\promotion\views.py:122
-#: .\promotion\views.py:161
+#: .\promotion\views.py:23 .\promotion\views.py:62 .\promotion\views.py:121
+#: .\promotion\views.py:160
 msgid "Fleet form submission failed. Please correct the errors."
 msgstr "Отправка формы флота не удалась. Исправьте ошибки."
 
-#: .\promotion\views.py:34 .\promotion\views.py:89 .\promotion\views.py:132
-#: .\promotion\views.py:171
+#: .\promotion\views.py:33 .\promotion\views.py:88 .\promotion\views.py:131
+#: .\promotion\views.py:170
 msgid "Tour form submission failed. Please correct the errors."
 msgstr "Отправка формы тура не удалась. Исправьте ошибки."
 
-#: .\templates\layout.html:104 .\templates\layout.html:119
-#: .\templates\layout.html:207
+#: .\templates\layout.html:111 .\templates\layout.html:126
+#: .\templates\layout.html:212
 msgid "Russian"
 msgstr "Русский"
 
-#: .\templates\layout.html:107 .\templates\layout.html:114
-#: .\templates\layout.html:203
+#: .\templates\layout.html:114 .\templates\layout.html:121
+#: .\templates\layout.html:208
 msgid "English"
 msgstr "Английский"
 
-#: .\templates\layout.html:156 .\templates\layout.html:176
-#: .\templates\layout.html:287
-msgid "Transfers&Tours"
-msgstr "Трансферы&Туры"
+#: .\templates\layout.html:161 .\templates\layout.html:181
+#: .\templates\layout.html:292
+msgid "Baku Airport Transfer Rates"
+msgstr "Трансферы из аэропорта (цены)"
 
-#: .\templates\layout.html:160 .\templates\layout.html:192
+#: .\templates\layout.html:162 .\templates\layout.html:187
 #: .\templates\layout.html:293
+msgid "Azerbaijan Tours & Day Trips"
+msgstr "Туры по Азербайджану"
+
+#: .\templates\layout.html:165 .\templates\layout.html:197
+#: .\templates\layout.html:298
 msgid "Contact Us"
 msgstr "Контакты "
 
-#: .\templates\layout.html:241
+#: .\templates\layout.html:246
 msgid "Need help?"
 msgstr "Нужна помощь?"
 
-#: .\templates\layout.html:245
+#: .\templates\layout.html:250
 msgid "Call us"
 msgstr "Звоните нам"
 
-#: .\templates\layout.html:256
+#: .\templates\layout.html:261
 msgid "Email to us"
 msgstr "Отправить нам E-mail"
 
-#: .\templates\layout.html:264
+#: .\templates\layout.html:269
 msgid "Follow us"
 msgstr "Подпишитесь на нас"
 
-#: .\templates\layout.html:283
+#: .\templates\layout.html:288
 msgid "Menu"
 msgstr "Меню"
 
-#: .\templates\layout.html:304
+#: .\templates\layout.html:309
 msgid "All rights reserved"
 msgstr "Все права защищены"
+
+#~ msgid ""
+#~ "Fleet&Rate - Luxtripbaku a company experienced in organizing transfers "
+#~ "and tours"
+#~ msgstr ""
+#~ "Автопарк&Тарифы - Luxtripbaku компания с опытом организации трансферов и "
+#~ "туров"
+
+#~ msgid "Transfers&Tours"
+#~ msgstr "Трансферы&Туры"
 
 #~ msgid "As Luxtripbaku company, we have over 8 years of experience"
 #~ msgstr "Как компания Lux Trip Baku, мы имеем более 8 лет опыта"
