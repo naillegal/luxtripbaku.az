@@ -238,7 +238,6 @@ msgstr ""
 "стесняйтесь спрашивать нас!"
 
 #: .\promotion\templates\fleet.html:6
-#, fuzzy
 #| msgid ""
 #| "Transfers&Tours - Luxtripbaku a company experienced in organizing "
 #| "transfers and tours"
@@ -488,7 +487,6 @@ msgid "Subscribe"
 msgstr "Подписаться"
 
 #: .\promotion\templates\tours.html:6
-#, fuzzy
 #| msgid ""
 #| "Transfers&Tours - Luxtripbaku a company experienced in organizing "
 #| "transfers and tours"
